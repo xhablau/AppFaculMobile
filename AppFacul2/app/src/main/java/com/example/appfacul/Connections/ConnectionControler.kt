@@ -1,5 +1,8 @@
 package com.example.appfacul.Connections
 
+import android.content.Context
+import android.widget.Toast
+import com.example.appfacul.Constants.Constants
 import com.example.appfacul.DataClass.AutenticationResponse
 import retrofit2.Call
 import retrofit2.Response
@@ -7,9 +10,9 @@ import retrofit2.Response
 class ConnectionControler {
 
     //returns true if the user and password are valid
-    fun AutenticationConnection(user:String, password:String):Boolean{
+    fun AutenticationConnection(user:String, password:String,context:Context):Boolean{
         try{
-            val serverurl = "http://192.168.15.6:8080/"
+            val serverurl = Constants.serverUrl
             val retrofitClient = NetworkUtils.getRetrofitInstance(serverurl)
             val endpoint = retrofitClient.create(Endpoint::class.java)
             val callback = endpoint.getCurrentUser(user, password)
@@ -22,10 +25,12 @@ class ConnectionControler {
                     if(result?.authenticated!!){
                         println("Valid user and password")
                     }else{
+                        Toast.makeText(context,"Usuário ou senha inválido!", Toast.LENGTH_SHORT).show()
                         println("Invalid credentials")
                     }
                 }
                 override fun onFailure(call: Call<AutenticationResponse>, t: Throwable) {
+                    Toast.makeText(context,"Ocorreu um erro ao se comunicar com o servidor!", Toast.LENGTH_SHORT).show()
                     println("error")
                 }
             })
