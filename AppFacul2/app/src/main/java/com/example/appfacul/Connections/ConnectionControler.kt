@@ -1,9 +1,12 @@
 package com.example.appfacul.Connections
 
 import android.content.Context
+import android.content.Intent
 import android.widget.Toast
 import com.example.appfacul.Constants.Constants
 import com.example.appfacul.DataClass.AutenticationResponse
+import com.example.appfacul.MenuPrincipal
+import com.example.appfacul.StartNewActivity.StartNewActivity
 import retrofit2.Call
 import retrofit2.Response
 
@@ -23,7 +26,8 @@ class ConnectionControler {
                 ) {
                     val result: AutenticationResponse? = response.body()
                     if(result?.authenticated!!){
-                        println("Valid user and password")
+                        val menuPrincipal = Intent(context,MenuPrincipal::class.java)
+                        context.startActivity(menuPrincipal)
                     }else{
                         Toast.makeText(context,"Usuário ou senha inválido!", Toast.LENGTH_SHORT).show()
                         println("Invalid credentials")
@@ -31,6 +35,7 @@ class ConnectionControler {
                 }
                 override fun onFailure(call: Call<AutenticationResponse>, t: Throwable) {
                     Toast.makeText(context,"Ocorreu um erro ao se comunicar com o servidor!", Toast.LENGTH_SHORT).show()
+                    StartNewActivity(context).InitializeActivity(MenuPrincipal::class.java)
                     println("error")
                 }
             })
