@@ -11,7 +11,7 @@
         android:id="@+id/imageView"
         android:layout_width="343dp"
         android:layout_height="74dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="100dp"
         android:scaleType="fitStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,42 +19,43 @@
         app:srcCompat="@drawable/logounilins" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/idUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:ems="10"
+        android:hint="ID do Aluno"
         android:inputType="textEmailAddress"
-        android:text="E-Mail"
+        android:selectAllOnFocus="false"
+        android:singleLine="false"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:text="E-Mail" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/passwordUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:ems="10"
+        android:hint="Senha"
         android:inputType="textPassword"
-        android:text="Senha"
         android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
-        tools:text="Senha" />
+        app:layout_constraintTop_toBottomOf="@+id/idUser" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnAccess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="ACESSAR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordUser" />
 
 </android.support.constraint.ConstraintLayout>
