@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar!!.hide()
-
         binding.btnAccess.setOnClickListener{
             val idUser = binding.idUser.text.toString()
             val passwordUser = binding.passwordUser.text.toString()

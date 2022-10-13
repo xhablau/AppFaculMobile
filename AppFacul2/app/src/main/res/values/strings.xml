@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">AppFacul</string>
+    <string name="app_name">Unilins</string>
+    <string name="welcome_messages">Olá, %1$s! </string>
 </resources>

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.widget.Toast
 import com.example.appfacul.Constants.Constants
 import com.example.appfacul.DataClass.AutenticationResponse
+import com.example.appfacul.GlobalClass
 import com.example.appfacul.MenuPrincipal
 import com.example.appfacul.StartNewActivity.StartNewActivity
 import retrofit2.Call
@@ -26,7 +27,13 @@ class ConnectionControler {
                 ) {
                     val result: AutenticationResponse? = response.body()
                     if(result?.authenticated!!){
+                        val globalClass = GlobalClass()
                         val menuPrincipal = Intent(context,MenuPrincipal::class.java)
+
+                        globalClass.id=result.login
+                        globalClass.globalUserName=result.username
+                        globalClass.email=result.email
+
                         context.startActivity(menuPrincipal)
                     }else{
                         Toast.makeText(context,"Usuário ou senha inválido!", Toast.LENGTH_SHORT).show()
