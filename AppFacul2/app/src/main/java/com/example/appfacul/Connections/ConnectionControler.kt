@@ -6,7 +6,7 @@ import android.widget.Toast
 import com.example.appfacul.Constants.Constants
 import com.example.appfacul.DataClass.AutenticationResponse
 import com.example.appfacul.GlobalClass
-import com.example.appfacul.MenuPrincipal
+import com.example.appfacul.Views.MenuPrincipal
 import com.example.appfacul.StartNewActivity.StartNewActivity
 import retrofit2.Call
 import retrofit2.Response
@@ -28,7 +28,7 @@ class ConnectionControler {
                     val result: AutenticationResponse? = response.body()
                     if(result?.authenticated!!){
                         val globalClass = GlobalClass()
-                        val menuPrincipal = Intent(context,MenuPrincipal::class.java)
+                        val menuPrincipal = Intent(context, MenuPrincipal::class.java)
 
                         globalClass.id=result.login
                         globalClass.globalUserName=result.username
@@ -42,7 +42,7 @@ class ConnectionControler {
                 }
                 override fun onFailure(call: Call<AutenticationResponse>, t: Throwable) {
                     Toast.makeText(context,"Ocorreu um erro ao se comunicar com o servidor!", Toast.LENGTH_SHORT).show()
-                    StartNewActivity(context).InitializeActivity(MenuPrincipal::class.java)
+                    StartNewActivity(context).InitializeActivityMenuPrincipal(MenuPrincipal::class.java)
                     println("error")
                 }
             })
