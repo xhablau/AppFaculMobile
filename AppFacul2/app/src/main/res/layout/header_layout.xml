@@ -30,12 +30,12 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"></TextView>
             <TextView
-                android:text="Igor"
+                android:text="Eng Software"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25dp"
+                android:textSize="15dp"
                 android:textColor="@color/black"
-                android:textStyle="bold"></TextView>
+                ></TextView>
         </LinearLayout>
 
     </LinearLayout>

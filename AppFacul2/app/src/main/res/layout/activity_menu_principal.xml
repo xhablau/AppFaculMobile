@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0D3A57"
-    tools:context=".Views.MenuPrincipal">
+    tools:context=".Views.MenuPrincipal"
+    android:id="@+id/drawer_layout">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -38,7 +39,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.492"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"></TextView>
 
             <Button
                 android:id="@+id/buttonCadastroAcademico"
@@ -50,7 +51,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/menuPrincipalHeader" />
+                app:layout_constraintTop_toBottomOf="@+id/menuPrincipalHeader"></Button>
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -60,7 +61,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/icon" />
+                app:srcCompat="@drawable/icon"></ImageView>
+
+
 
             <ImageView
                 android:id="@+id/drawer_open"
@@ -70,7 +73,8 @@
                 android:layout_marginTop="8dp"
                 android:src="@drawable/ic_baseline_menu_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+
 
 
             <fragment
@@ -85,12 +89,16 @@
                 app:layout_constraintTop_toBottomOf="parent"
                 app:navGraph="@navigation/nav_grap"></fragment>
 
+
     </android.support.constraint.ConstraintLayout>
 
     <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_drawer"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="center"></android.support.design.widget.NavigationView>
+        android:layout_gravity="start"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/header_layout"></android.support.design.widget.NavigationView>
 
 
 </android.support.v4.widget.DrawerLayout>
