@@ -1,10 +1,10 @@
 package com.example.appfacul
 
 import android.app.Application
-import android.content.Context
 
 class GlobalClass:Application() {
-    var globalUserName="Paulo"
-    var email=""
-    var id=""
+    var globalUserName = "test"
+    var email = ""
+    var id = ""
+    var responseHeaders = okhttp3.Headers.Builder().build()
 }

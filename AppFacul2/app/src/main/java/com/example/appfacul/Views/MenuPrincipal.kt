@@ -1,6 +1,6 @@
 package com.example.appfacul.Views
 
-import android.content.Intent
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -18,10 +18,13 @@ class MenuPrincipal : AppCompatActivity() {
         setContentView(R.layout.activity_menu_principal)
         supportActionBar?.hide()
 
-        val globalClass= GlobalClass()
+        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+        val username = sharedPreference.getString("username","")
+
         val textViewName = findViewById<TextView>(R.id.menuPrincipalHeader)
         val textViewTime = findViewById<TextView>(R.id.menuPrincipalHeaderTime)
-        textViewName.text = getString(R.string.welcome_messages,globalClass.globalUserName)
+        textViewName.text = getString(R.string.welcome_messages,
+            username?.split(" ")?.get(0)?.lowercase()?.capitalize() ?:"")
 
         val date = Calendar.getInstance().time
         val formatter = SimpleDateFormat("dd/MM/yyyy",Locale.ENGLISH) //or use getDateInstance()
