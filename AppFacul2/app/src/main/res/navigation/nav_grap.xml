@@ -20,4 +20,19 @@
         android:name="com.example.appfacul.Views.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/notaFragment"
+        android:name="com.example.appfacul.Views.NotaFragment"
+        android:label="fragment_nota"
+        tools:layout="@layout/fragment_nota" />
+    <fragment
+        android:id="@+id/faltaFragment"
+        android:name="com.example.appfacul.Views.FaltaFragment"
+        android:label="fragment_falta"
+        tools:layout="@layout/fragment_falta" />
+    <fragment
+        android:id="@+id/campusFragment"
+        android:name="com.example.appfacul.Views.CampusFragment"
+        android:label="fragment_campus"
+        tools:layout="@layout/fragment_campus" />
 </navigation>
