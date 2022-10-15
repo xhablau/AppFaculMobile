@@ -13,51 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/menuPrincipalHeaderTime"
-                android:layout_width="346dp"
-                android:layout_height="49dp"
-                android:layout_marginTop="180dp"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.492"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/menuPrincipalHeader"
-                android:layout_width="346dp"
-                android:layout_height="49dp"
-                android:layout_marginTop="132dp"
-                android:text="TextView"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.492"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></TextView>
-
-            <Button
-                android:id="@+id/buttonCadastroAcademico"
-                android:layout_width="328dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="48dp"
-                android:background="#A1A1A1"
-                android:text="Cadastro Acadêmico"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.493"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/menuPrincipalHeader"></Button>
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="88dp"
                 android:layout_height="93dp"
-                app:layout_constraintBottom_toTopOf="@+id/menuPrincipalHeader"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -76,18 +37,13 @@
                 app:layout_constraintTop_toTopOf="parent"></ImageView>
 
 
-
-            <fragment
-                android:id="@+id/fragment"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                app:defaultNavHost="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="parent"
-                app:navGraph="@navigation/nav_grap"></fragment>
+        <fragment
+            android:id="@+id/fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="409dp"
+            android:layout_height="731dp"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_grap"></fragment>
 
 
     </android.support.constraint.ConstraintLayout>
