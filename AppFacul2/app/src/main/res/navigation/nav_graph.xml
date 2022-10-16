@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/notaActivity">
+
+    <activity
+        android:id="@+id/notaActivity"
+        android:name="com.example.appfacul.Views.NotaActivity"
+        android:label="activity_nota"
+        tools:layout="@layout/activity_nota" />
+    <activity
+        android:id="@+id/faltaActivity"
+        android:name="com.example.appfacul.Views.FaltaActivity"
+        android:label="activity_falta"
+        tools:layout="@layout/activity_falta" />
+    <activity
+        android:id="@+id/campusActivity"
+        android:name="com.example.appfacul.Views.CampusActivity"
+        android:label="activity_campus"
+        tools:layout="@layout/activity_campus" />
+</navigation>

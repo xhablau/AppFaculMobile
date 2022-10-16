@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0D3A57"
-    tools:context=".Views.MenuPrincipal" >
+    tools:context=".Views.MenuPrincipal"
+    android:id="@+id/drawer_layout">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,12 +21,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:gravity="center">
             <ImageView
-                android:id="@+id/draer_open"
+                android:id="@+id/drawer_open"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_round_menu_24"
-                android:layout_margin="8dp"></ImageView>
+                android:layout_margin="8dp"
+                ></ImageView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></TextView>
         </LinearLayout>
+
+
+        <fragment
+            android:layout_width="398dp"
+            android:layout_height="383dp"
+            android:id="@+id/fragment"
+            android:layout_marginBottom="4dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintStart_toStartOf="parent"
+            app:navGraph="@navigation/nav_graph"></fragment>
 
         <TextView
             android:id="@+id/menuPrincipalHeaderTime"
@@ -76,5 +94,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/icon" />
+
     </android.support.constraint.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_drawer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/header_layout">
+
+    </com.google.android.material.navigation.NavigationView>
 </android.support.v4.widget.DrawerLayout>
