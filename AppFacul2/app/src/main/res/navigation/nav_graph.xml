@@ -3,13 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/notaActivity">
+    app:startDestination="@id/testeFragment2">
 
-    <activity
-        android:id="@+id/notaActivity"
-        android:name="com.example.appfacul.Views.NotaActivity"
-        android:label="activity_nota"
-        tools:layout="@layout/activity_nota" />
     <activity
         android:id="@+id/faltaActivity"
         android:name="com.example.appfacul.Views.FaltaActivity"
@@ -20,4 +15,10 @@
         android:name="com.example.appfacul.Views.CampusActivity"
         android:label="activity_campus"
         tools:layout="@layout/activity_campus" />
+    <fragment
+        android:id="@+id/testeFragment2"
+        android:name="com.example.appfacul.Views.TesteFragment"
+        android:label="fragment_teste"
+        tools:layout="@layout/fragment_teste" />
+
 </navigation>
