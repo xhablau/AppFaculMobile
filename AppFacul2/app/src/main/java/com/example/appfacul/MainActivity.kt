@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.appfacul.LoginControler.LoginControler
+import com.example.appfacul.Views.DashBoard
+import com.example.appfacul.Views.MenuDrawer
 import com.example.appfacul.Views.MenuPrincipal
 import com.example.appfacul.databinding.ActivityMainBinding
 
@@ -25,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             if (idUser.isEmpty() || passwordUser.isEmpty()) {
                 Toast.makeText(this,"Preencha todos os campos!", Toast.LENGTH_SHORT).show()
             } else {
-                val segundaTela = Intent(this, MenuPrincipal::class.java)
+                val segundaTela = Intent(this, MenuDrawer::class.java)
                 startActivity(segundaTela)
             }
         }
