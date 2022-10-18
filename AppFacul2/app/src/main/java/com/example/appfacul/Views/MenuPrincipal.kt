@@ -30,10 +30,12 @@ class MenuPrincipal : AppCompatActivity() {
         val formatter = SimpleDateFormat("dd/MM/yyyy",Locale.ENGLISH) //or use getDateInstance()
         textViewTime.text=formatter.format(date)
 
+
+
         val buttonCadastroAcademico:Button = findViewById(R.id.buttonCadastroAcademico)
         buttonCadastroAcademico.setOnClickListener{
             StartNewActivity(this).InitializeActivityCadastroAcademico(CadastroAcademico::class.java)
         }
-        
+
     }
 }

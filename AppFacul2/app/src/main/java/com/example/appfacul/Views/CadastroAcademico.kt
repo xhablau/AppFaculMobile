@@ -8,7 +8,7 @@ import com.example.appfacul.R
 class CadastroAcademico : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cadastro_academico)
+        // setContentView(R.layout.activity_cadastro_academico)
         supportActionBar?.hide()
         ConnectionControler().GetCurrentUserContext(this)
     }
