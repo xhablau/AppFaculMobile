@@ -21,19 +21,10 @@ class MenuPrincipal : AppCompatActivity() {
         val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
         val username = sharedPreference.getString("username","")
 
-        val textViewName = findViewById<TextView>(R.id.menuPrincipalHeader)
-        val textViewTime = findViewById<TextView>(R.id.menuPrincipalHeaderTime)
-        textViewName.text = getString(R.string.welcome_messages,
-            username?.split(" ")?.get(0)?.lowercase()?.capitalize() ?:"")
 
-        val date = Calendar.getInstance().time
-        val formatter = SimpleDateFormat("dd/MM/yyyy",Locale.ENGLISH) //or use getDateInstance()
-        textViewTime.text=formatter.format(date)
 
-        val buttonCadastroAcademico:Button = findViewById(R.id.buttonCadastroAcademico)
-        buttonCadastroAcademico.setOnClickListener{
-            StartNewActivity(this).InitializeActivityCadastroAcademico(CadastroAcademico::class.java)
-        }
-        
+
+
+
     }
 }
