@@ -15,38 +15,16 @@ import androidx.navigation.ui.NavigationUI
 import com.example.appfacul.GlobalClass
 import com.example.appfacul.R
 import com.example.appfacul.StartNewActivity.StartNewActivity
-import com.example.appfacul.databinding.FragmentHomeBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class MenuPrincipal : AppCompatActivity() {
-    lateinit var drawerOpen:ImageView
 
-    lateinit var navigationDrawer: NavigationView
-
-    lateinit var drawerLayout:DrawerLayout
-
-    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_principal)
-        //supportActionBar?.hide()
-
-
-
-        navigationDrawer=findViewById(R.id.mobile_navigation)
-
-        drawerLayout=findViewById(R.id.drawer_layout)
-
-        drawerOpen.setOnClickListener {
-
-            drawerLayout.openDrawer(GravityCompat.START)
-
-        }
-
-
-
+        supportActionBar?.hide()
     }
 }
