@@ -8,9 +8,11 @@ import android.widget.TextView
 import com.example.appfacul.GlobalClass
 import com.example.appfacul.R
 import com.example.appfacul.StartNewActivity.StartNewActivity
+import com.example.appfacul.databinding.ActivityMenuFinalBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
+private lateinit var binding: ActivityMenuFinalBinding
 
 class MenuPrincipal : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
