@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.support.v4.app.Fragment
 import android.arch.lifecycle.ViewModelProvider
-import com.example.appfacul.Views.databinding.FragmentSlideshowBinding
+import com.example.appfacul.databinding.FragmentSlideshowBinding
 
 class SlideshowFragment : Fragment() {
 

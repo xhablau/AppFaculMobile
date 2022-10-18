@@ -11,7 +11,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
-import com.example.appfacul.Views.databinding.ActivityMenuTesteBinding
+import com.example.appfacul.R
+import com.example.appfacul.databinding.ActivityMenuTesteBinding
 
 class MenuTesteActivity : AppCompatActivity() {
 
