@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             if (idUser.isEmpty() || passwordUser.isEmpty()) {
                 Toast.makeText(this,"Preencha todos os campos!", Toast.LENGTH_SHORT).show()
             } else {
-                val segundaTela = Intent(this, MenuSecundarioclass);
+                val segundaTela = Intent(this, MenuPrincipal::class.java)
                 startActivity(segundaTela)
             }
         }

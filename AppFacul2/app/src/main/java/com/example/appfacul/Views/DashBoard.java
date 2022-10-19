@@ -34,9 +34,9 @@ public class DashBoard extends AppCompatActivity {
     public void clickDashbord(View view){
         recreate();
     }
-    public void clickAboutUs(View view){
-        MenuSecundario.redirecActivity(this, AboutUs.class);
-    }
+    //public void clickAboutUs(View view){
+       // MenuSecundario.redirecActivity(this, AboutUs.class);
+    //}
 
     public void clickLogOut(View view){
         MenuSecundario.logout(this);
