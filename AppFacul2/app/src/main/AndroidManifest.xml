@@ -18,21 +18,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".CampusActivity"
+            android:name=".Views.CampusActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".NotaActivity"
+            android:name=".Views.NotaActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".FaltaActivity"
+            android:name=".Views.FaltaActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

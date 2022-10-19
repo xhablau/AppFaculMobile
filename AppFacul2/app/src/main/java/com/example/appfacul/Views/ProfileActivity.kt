@@ -22,7 +22,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
 
-
+    // ================= Fun Menu =================
     fun ClickMenu(view: View?) {
         openDrawer(drawerLayout)
     }
@@ -51,6 +51,18 @@ class ProfileActivity : AppCompatActivity() {
 
     fun clickNotification(view: View?) {
         redirecActivity(this, NotificationActivity::class.java)
+    }
+
+    fun clickNota(view: View?) {
+        redirecActivity(this, NotaActivity::class.java)
+    }
+
+    fun clickFalta(view: View?) {
+        redirecActivity(this, FaltaActivity::class.java)
+    }
+
+    fun clickCampus(view: View?) {
+        redirecActivity(this, CampusActivity::class.java)
     }
 
     fun clickLogOut(view: View?) {
