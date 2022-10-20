@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.appfacul.LoginControler.LoginControler
 import com.example.appfacul.Views.HomeActivity
+import com.example.appfacul.Views.MenuPrincipal
 import com.example.appfacul.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
