@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <ImageView
         android:layout_width="match_parent"
@@ -13,24 +12,24 @@
         android:src="@drawable/icon"></ImageView>
 
     <TextView
+        android:id="@+id/nameUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/nameUser"
         android:text="TextView"
-        android:textStyle="bold"
-        android:textSize="22sp"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textAlignment="center"></TextView>
+        android:textSize="22sp"
+        android:textStyle="bold"></TextView>
 
     <TextView
+        android:id="@+id/dateToday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/dateToday"
         android:text="TextView"
-        android:textStyle="bold"
-        android:textSize="22sp"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textAlignment="center"></TextView>
+        android:textSize="22sp"
+        android:textStyle="bold"></TextView>
 
 
     <View
@@ -43,17 +42,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:onClick="Clickhome">
+        android:onClick="Clickhome"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Home"
             android:padding="12dp"
-            android:layout_marginStart="16dp"></TextView>
+            android:text="Home"></TextView>
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -65,18 +65,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center_vertical"
-        android:onClick="clickProfile">
+        android:onClick="clickProfile"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
             android:layout_weight="1"
-            android:text="Perfil"
             android:padding="12dp"
-            android:layout_marginStart="17dp">
-        </TextView>
+            android:text="Perfil"></TextView>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -88,18 +87,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center_vertical"
-        android:onClick="clickNotification">
+        android:onClick="clickNotification"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
             android:layout_weight="1"
-            android:text="Notificações"
             android:padding="12dp"
-            android:layout_marginStart="17dp">
-        </TextView>
+            android:text="Notificações"></TextView>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -111,18 +109,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center_vertical"
-        android:onClick="clickNota">
+        android:onClick="clickNota"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
             android:layout_weight="1"
-            android:text="Nota"
             android:padding="12dp"
-            android:layout_marginStart="17dp">
-        </TextView>
+            android:text="Nota"></TextView>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -134,18 +131,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center_vertical"
-        android:onClick="clickFalta">
+        android:onClick="clickFalta"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
             android:layout_weight="1"
-            android:text="Falta"
             android:padding="12dp"
-            android:layout_marginStart="17dp">
-        </TextView>
+            android:text="Falta"></TextView>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -157,18 +153,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center_vertical"
-        android:onClick="clickCampus">
+        android:onClick="clickCampus"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
             android:layout_weight="1"
-            android:text="Campus"
             android:padding="12dp"
-            android:layout_marginStart="17dp">
-        </TextView>
+            android:text="Campus"></TextView>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -181,18 +176,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center_vertical"
-        android:onClick="clickLogOut">
+        android:onClick="clickLogOut"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
             android:layout_weight="1"
-            android:text="Logout"
             android:padding="12dp"
-            android:layout_marginStart="17dp">
-        </TextView>
+            android:text="Logout"></TextView>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -200,8 +194,6 @@
             android:layout_marginEnd="50dp"
             android:src="@drawable/ic_round_logout_24"></ImageView>
     </LinearLayout>
-
-
 
 
 </LinearLayout>

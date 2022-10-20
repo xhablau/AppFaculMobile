@@ -19,12 +19,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar!!.hide()
-        binding.btnAccess.setOnClickListener{
+        binding.btnAccess.setOnClickListener {
             val idUser = binding.idUser.text.toString()
             val passwordUser = binding.passwordUser.text.toString()
 
             if (idUser.isEmpty() || passwordUser.isEmpty()) {
-                Toast.makeText(this,"Preencha todos os campos!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
             } else {
                 val segundaTela = Intent(this, HomeActivity::class.java)
                 startActivity(segundaTela)

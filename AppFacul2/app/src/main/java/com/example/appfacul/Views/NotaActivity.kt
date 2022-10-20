@@ -84,10 +84,12 @@ class NotaActivity : AppCompatActivity() {
         ) { dialogInterface, i -> dialogInterface.dismiss() }
         builder.show()
     }
+
     override fun onPause() {
         super.onPause()
         closeDrawer(drawerLayout)
     }
+
     fun redirecActivity(activity: Activity, Class: Class<*>?) {
         val intent = Intent(activity, Class)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
