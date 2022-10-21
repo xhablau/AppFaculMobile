@@ -10,6 +10,7 @@ class CadastroAcademico : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro_academico)
         supportActionBar?.hide()
-        ConnectionControler().GetCurrentUserContext(this)
+        //ConnectionControler().GetCurrentUserContext(this)
+        //ConnectionControler().GetCurrentUserGrades(this)
     }
 }

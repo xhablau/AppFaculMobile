@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.view.View
+import com.example.appfacul.Connections.ConnectionControler
 import com.example.appfacul.R
 
 class NotaActivity : AppCompatActivity() {
@@ -18,6 +19,7 @@ class NotaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_nota)
         supportActionBar!!.hide()
         drawerLayout = findViewById(R.id.drawer_layout)
+        ConnectionControler().GetCurrentUserGrades(this)
     }
 
 

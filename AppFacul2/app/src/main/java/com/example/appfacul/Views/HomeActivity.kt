@@ -10,7 +10,9 @@ import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
+import com.example.appfacul.Connections.ConnectionControler
 import com.example.appfacul.R
+import com.example.appfacul.Shared.SetNameAndDate
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -24,6 +26,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         supportActionBar!!.hide()
         drawerLayout = findViewById(R.id.drawer)
+        ConnectionControler().GetCurrentUserSelecao(this)
 
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val username = sharedPreference.getString("username", "")
