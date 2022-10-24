@@ -6,11 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0D3A57"
+    android:orientation="vertical"
     tools:context=".Views.CampusActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,14 +21,23 @@
 
             <include layout="@layout/menu_toolbar"></include>
 
-            <TextView
+            <ImageView
+                android:id="@+id/img_campus"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="618dp"
+                app:srcCompat="@drawable/mapa_campus" />
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Campus"
-                android:textColor="@color/black"
-                android:textSize="50sp"
-                android:textStyle="bold"></TextView>
+                android:id="@+id/downloadImg"
+                android:text="Baixar Imagem Do Campus" />
+
+
+
         </LinearLayout>
 
     </android.support.constraint.ConstraintLayout>

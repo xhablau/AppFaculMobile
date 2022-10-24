@@ -1,24 +1,129 @@
 package com.example.appfacul.Views
 
+import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.DownloadManager
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.icu.util.Output
+import android.net.Uri
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.Toast
 import com.example.appfacul.R
+
+import org.w3c.dom.Document
+import java.io.*
+import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CampusActivity : AppCompatActivity() {
     var drawerLayout: DrawerLayout? = null
+    private lateinit var bird: ImageView
+    private lateinit var downloadImage: Button
+    private val STORAGE_CODE = 1001
+    var outputStream: OutputStream? = null
+    //var downloadImage: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_campus)
         supportActionBar!!.hide()
         drawerLayout = findViewById(R.id.drawer_layout)
+        downloadImage = findViewById(R.id.downloadImg)
+
+        val url =
+            "https://unilins.edu.br/wp-content/uploads/2022/04/mapa_campus-04-22-1-scaled-1536x921.jpg"
+
+        downloadImage.setOnClickListener {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                DownloadImage("Imagem Campus Unilins", url)
+            } else {
+                askPermission()
+            }
+        }
+
+
+
+
     }
+
+
+    private fun askPermission() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_CODE
+
+        )
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+
+    ) {
+        if (requestCode == REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                val url =
+                    "https://unilins.edu.br/wp-content/uploads/2022/04/mapa_campus-04-22-1-scaled-1536x921.jpg"
+                DownloadImage("Imagem Campus Unilins", url)
+            } else {
+                Toast.makeText(
+                    this,
+                    "Forneça as permissões necessárias",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    }
+
+    fun DownloadImage(fileName: String, imageURL: String?) {
+        try {
+            var downloadManager: DownloadManager? = null
+            downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+            val downloaduri = Uri.parse(imageURL)
+            val request = DownloadManager.Request(downloaduri)
+            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
+                .setAllowedOverRoaming(false)
+                .setTitle(fileName)
+                .setMimeType("CampusUnilins/jpeg")
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                .setDestinationInExternalPublicDir(
+                    Environment.DIRECTORY_PICTURES,
+                    File.separator + fileName + ".jpg"
+                )
+            downloadManager.enqueue(request)
+            Toast.makeText(this, "Download Concluido", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            Toast.makeText(this, "Falha no Download", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    companion object {
+        private const val REQUEST_CODE = 100
+    }
+
+
 
 
     // ================= Fun Menu =================

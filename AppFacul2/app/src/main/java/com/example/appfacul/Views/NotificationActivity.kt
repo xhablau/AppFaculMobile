@@ -2,13 +2,17 @@ package com.example.appfacul.Views
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.view.View
+import android.widget.TextView
 import com.example.appfacul.R
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NotificationActivity : AppCompatActivity() {
     var drawerLayout: DrawerLayout? = null
@@ -18,6 +22,20 @@ class NotificationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_notification)
         supportActionBar!!.hide()
         drawerLayout = findViewById(R.id.drawer_layout)
+
+
+        val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val username = sharedPreference.getString("username", "")
+        val textViewTime = findViewById<TextView>(R.id.dateToday)
+        val textViewName = findViewById<TextView>(R.id.nameUser)
+        textViewName.text = getString(
+            R.string.welcome_messages,
+            username?.split(" ")?.get(0)?.lowercase()?.capitalize() ?: ""
+        )
+
+        val date = Calendar.getInstance().time
+        val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH) //or use getDateInstance()
+        textViewTime.text = formatter.format(date)
     }
 
 

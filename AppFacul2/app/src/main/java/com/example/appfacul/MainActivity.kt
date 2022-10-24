@@ -26,7 +26,9 @@ class MainActivity : AppCompatActivity() {
             if (idUser.isEmpty() || passwordUser.isEmpty()) {
                 Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
             } else {
-                LoginControler().FormLoginControler(idUser,passwordUser,this)
+               // LoginControler().FormLoginControler(idUser,passwordUser,this)
+                val segundaTela = Intent(this, HomeActivity::class.java)
+                startActivity(segundaTela)
             }
         }
     }
