@@ -36,8 +36,6 @@ class CampusActivity : AppCompatActivity() {
     private lateinit var bird: ImageView
     private lateinit var downloadImage: Button
     private val STORAGE_CODE = 1001
-    var outputStream: OutputStream? = null
-    //var downloadImage: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,25 +53,22 @@ class CampusActivity : AppCompatActivity() {
                     Manifest.permission.WRITE_EXTERNAL_STORAGE
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
-                DownloadImage("Imagem Campus Unilins", url)
+                DownloadImage("Campus Unilins", url)
             } else {
                 askPermission()
             }
         }
-
-
-
-
     }
 
-
+    // ================= Fun Download Img  e Permissão =================
     private fun askPermission() {
         ActivityCompat.requestPermissions(
             this,
             arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_CODE
-
         )
     }
+
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
