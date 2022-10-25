@@ -1,83 +1,39 @@
 package com.example.appfacul.Views
 
-import android.app.Activity
-import android.app.AlertDialog
-import android.content.Intent
+import android.content.Context
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.view.GravityCompat
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.AppCompatActivity
-import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import com.example.appfacul.GlobalClass
 import com.example.appfacul.R
+import com.example.appfacul.StartNewActivity.StartNewActivity
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class MenuPrincipal : AppCompatActivity() {
-    var drawerLayout: DrawerLayout? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_principal)
-        drawerLayout = findViewById(R.id.drawer)
-    }
+        supportActionBar?.hide()
 
-    fun ClickMenu(view: View?) {
-        openDrawer(drawerLayout)
-    }
+        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+        val username = sharedPreference.getString("username","")
 
-    fun openDrawer(drawerLayout: DrawerLayout?) {
-        drawerLayout!!.openDrawer(GravityCompat.START)
-    }
+        val textViewName = findViewById<TextView>(R.id.menuPrincipalHeader)
+        val textViewTime = findViewById<TextView>(R.id.menuPrincipalHeaderTime)
+        textViewName.text = getString(R.string.welcome_messages,
+            username?.split(" ")?.get(0)?.lowercase()?.capitalize() ?:"")
 
-    fun ClickLogo(view: View?) {
-        closeDrawer(drawerLayout)
-    }
+        val date = Calendar.getInstance().time
+        val formatter = SimpleDateFormat("dd/MM/yyyy",Locale.ENGLISH) //or use getDateInstance()
+        textViewTime.text=formatter.format(date)
 
-    fun closeDrawer(drawerLayout: DrawerLayout?) {
-        if (drawerLayout!!.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START)
+        val buttonCadastroAcademico:Button = findViewById(R.id.buttonCadastroAcademico)
+        buttonCadastroAcademico.setOnClickListener{
+            StartNewActivity(this).InitializeActivityCadastroAcademico(CadastroAcademico::class.java)
         }
-    }
-
-    fun Clickhome(view: View?) {
-        recreate()
-    }
-
-    fun clickDashbord(view: View?) {
-        redirecActivity(this, DashBoardActivity::class.java)
-    }
-
-    fun clickAboutUs(view: View?) {
-        redirecActivity(this, AboutUsActivity::class.java)
-    }
-
-    fun clickLogOut(view: View?) {
-        logout(this)
-    }
-
-    fun logout(activity: Activity) {
-        val builder = AlertDialog.Builder(activity)
-        builder.setTitle("Logout")
-        builder.setMessage("Tem certeza que quer sair?")
-        builder.setPositiveButton(
-            "Sim"
-        ) { dialogInterface, i ->
-            activity.finishActivity(0)
-            System.exit(0)
-        }
-        builder.setNegativeButton(
-            "Não"
-        ) { dialogInterface, i -> dialogInterface.dismiss() }
-        builder.show()
-    }
-
-    fun redirecActivity(activity: Activity, Class: Class<*>?) {
-        val intent = Intent(activity, Class)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        activity.startActivity(intent)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        closeDrawer(drawerLayout)
+        
     }
 }

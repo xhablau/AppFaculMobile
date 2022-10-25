@@ -12,13 +12,25 @@
         android:src="@drawable/icon"></ImageView>
 
     <TextView
+        android:id="@+id/nameUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Coding with Aiman"
-        android:textStyle="bold"
-        android:textSize="22sp"
+        android:text="TextView"
+        android:textAlignment="center"
         android:textColor="@color/black"
-        android:textAlignment="center"></TextView>
+        android:textSize="22sp"
+        android:textStyle="bold"></TextView>
+
+    <TextView
+        android:id="@+id/dateToday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"></TextView>
+
 
     <View
         android:layout_width="match_parent"
@@ -30,17 +42,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:onClick="Clickhome">
+        android:onClick="Clickhome"
+        android:orientation="horizontal">
 
         <TextView
-           android:layout_width="0dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Home"
             android:padding="12dp"
-            android:layout_marginStart="16dp"></TextView>
+            android:text="Home"></TextView>
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,65 +65,128 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center_vertical"
-        android:onClick="clickDashbord">
+        android:onClick="clickProfile"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
             android:layout_weight="1"
-            android:text="DashBord"
             android:padding="12dp"
-            android:layout_marginStart="17dp">
-        </TextView>
+            android:text="Perfil"></TextView>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
-            android:src="@drawable/ic_round_dashboard_24"></ImageView>
+            android:src="@drawable/ic_round_person_24"></ImageView>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center_vertical"
-        android:onClick="clickAboutUs">
+        android:onClick="clickNotification"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
             android:layout_weight="1"
-            android:text="About Us"
             android:padding="12dp"
-            android:layout_marginStart="17dp">
-        </TextView>
+            android:text="Notificações"></TextView>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
-            android:src="@drawable/ic_round_info_24"></ImageView>
+            android:src="@drawable/ic_round_notifications_24"></ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:onClick="clickNota"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:text="Nota"></TextView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/ic_round_school_24"></ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:onClick="clickFalta"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:text="Falta"></TextView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/ic_round_notifications_24"></ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:onClick="clickCampus"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:text="Campus"></TextView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/ic_round_account_balance_24"></ImageView>
     </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_gravity="center_vertical"
-        android:onClick="clickLogOut">
+        android:onClick="clickLogOut"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
             android:layout_weight="1"
-            android:text="Logout"
             android:padding="12dp"
-            android:layout_marginStart="17dp">
-        </TextView>
+            android:text="Logout"></TextView>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -118,8 +194,6 @@
             android:layout_marginEnd="50dp"
             android:src="@drawable/ic_round_logout_24"></ImageView>
     </LinearLayout>
-
-
 
 
 </LinearLayout>

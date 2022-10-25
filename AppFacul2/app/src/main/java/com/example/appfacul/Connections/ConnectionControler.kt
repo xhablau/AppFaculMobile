@@ -1,13 +1,17 @@
 package com.example.appfacul.Connections
 
 import android.content.Context
+import android.content.Intent
+import androidx.core.content.ContextCompat.startActivity
 import android.widget.Toast
 import com.example.appfacul.Constants.Constants
 import com.example.appfacul.DataClass.AutenticationResponse
 import com.example.appfacul.DataClass.ContextResponse
+import com.example.appfacul.DataClass.GradesResponse
 import com.example.appfacul.GlobalClass
 import com.example.appfacul.Views.MenuPrincipal
 import com.example.appfacul.StartNewActivity.StartNewActivity
+import com.example.appfacul.Views.HomeActivity
 import retrofit2.Call
 import retrofit2.Response
 
@@ -39,7 +43,10 @@ class ConnectionControler {
 
                         editor.commit()
 
-                        StartNewActivity(context).InitializeActivityMenuPrincipal(MenuPrincipal::class.java)
+                        //StartNewActivity(context).InitializeActivityMenuPrincipal(MenuPrincipal::class.java)
+
+                        val segundaTela = Intent(context, HomeActivity::class.java)
+                        context.startActivity(segundaTela)
 
                     }else{
                         Toast.makeText(context,"Usuário ou senha inválido!", Toast.LENGTH_SHORT).show()
@@ -48,7 +55,7 @@ class ConnectionControler {
                 }
                 override fun onFailure(call: Call<AutenticationResponse>, t: Throwable) {
                     Toast.makeText(context,"Ocorreu um erro ao se comunicar com o servidor!", Toast.LENGTH_SHORT).show()
-                    println("error")
+                    println(t.message)
                 }
             })
             return true
@@ -79,11 +86,66 @@ class ConnectionControler {
                 editor.putString("NomeCurso",responseBody?.NOMECURSO)
                 editor.commit()
 
-
             }
 
             override fun onFailure(call: Call<ContextResponse>, t: Throwable) {
+                Toast.makeText(context,"Ocorreu um erro ao se comunicar com o servidor!", Toast.LENGTH_SHORT).show()
                 println("error")
+            }
+        })
+
+    }
+    fun GetCurrentUserGrades(context: Context){
+        val sharedPreference =  context.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+
+        val serverUrl = Constants.serverUrl
+        val retrofitClient = NetworkUtils.getRetrofitInstance(serverUrl)
+        val endpoint = retrofitClient.create(Endpoint::class.java)
+
+        val corporePrincipal = sharedPreference.getString("CorporePrincipal","")?:""
+        val aspxAuth = sharedPreference.getString(".ASPXAUTH","")?:""
+        val defaultAlias = sharedPreference.getString("DefaultAlias","")?:""
+        val EduContextoAlunoResponsavelAPI = sharedPreference.getString("EduContextoAlunoResponsavelAPI","")?:""
+
+        val callback = endpoint.getCurrentUserGrades(corporePrincipal,aspxAuth,defaultAlias,EduContextoAlunoResponsavelAPI)
+        callback.enqueue(object : retrofit2.Callback<Boolean>{
+            override fun onResponse(
+                call: Call<Boolean>,
+                response: Response<Boolean>
+            ) {
+
+            }
+
+            override fun onFailure(call: Call<Boolean>, t: Throwable) {
+                Toast.makeText(context,"Ocorreu um erro ao se comunicar com o servidor!", Toast.LENGTH_SHORT).show()
+                println("Error")
+            }
+        })
+
+
+    }
+    fun GetCurrentUserSelecao(context: Context){
+        val sharedPreference =  context.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+
+        val serverUrl = Constants.serverUrl
+        val retrofitClient = NetworkUtils.getRetrofitInstance(serverUrl)
+        val endpoint = retrofitClient.create(Endpoint::class.java)
+
+        val corporePrincipal = sharedPreference.getString("CorporePrincipal","")?:""
+        val aspxAuth = sharedPreference.getString(".ASPXAUTH","")?:""
+        val defaultAlias = sharedPreference.getString("DefaultAlias","")?:""
+
+        val callback = endpoint.getCurrentUserSelecao(corporePrincipal,aspxAuth,defaultAlias)
+        callback.enqueue(object : retrofit2.Callback<Boolean> {
+            override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
+                val editor = sharedPreference.edit()
+                editor.putString("EduContextoAlunoResponsavelAPI",response.headers().get("EduContextoAlunoResponsavelAPI"))
+                editor.commit()
+            }
+
+            override fun onFailure(call: Call<Boolean>, t: Throwable) {
+                Toast.makeText(context,"Ocorreu um erro ao se comunicar com o servidor!", Toast.LENGTH_SHORT).show()
+                println(t.message)
             }
         })
 

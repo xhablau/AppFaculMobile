@@ -2,26 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="12dp"
-    android:layout_gravity="center_vertical">
+    android:padding="12dp">
 
     <ImageView
+        android:id="@+id/ClickMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="ClickMenu"
-        android:id="@+id/ClickMenu"
         android:src="@drawable/ic_round_menu_24"></ImageView>
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Coding With Aiman"
-        android:textStyle="bold"
+        android:text="Unilins"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="22sp"
-        android:textColor="@color/black"
-        android:textAlignment="center"></TextView>
+        android:textStyle="bold"></TextView>
 
     <ImageView
         android:layout_width="wrap_content"
