@@ -1,7 +1,7 @@
 package com.example.appfacul.Views
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.appfacul.R
 import com.example.appfacul.databinding.ActivityMainBinding
 
