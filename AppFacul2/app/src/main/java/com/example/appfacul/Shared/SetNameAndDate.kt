@@ -2,7 +2,7 @@ package com.example.appfacul.Shared
 
 import android.app.Application
 import android.content.Context
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import com.example.appfacul.R
 import java.text.SimpleDateFormat
