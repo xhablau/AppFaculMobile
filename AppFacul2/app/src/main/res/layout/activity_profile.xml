@@ -15,18 +15,115 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <include layout="@layout/menu_toolbar"></include>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Perfil"
-                android:textColor="@color/black"
-                android:textSize="50sp"
-                android:textStyle="bold"></TextView>
+                android:layout_height="234dp">
+
+                <ImageView
+                    android:id="@+id/imgUserProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="30dp"
+                    android:paddingTop="30dp"
+                    tools:srcCompat="@tools:sample/avatars" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="77dp"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="Nome:"
+                            android:textColor="@color/white"
+                            android:textSize="20dp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/nameUserProfile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="77dp"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="40dp"
+                            android:text="TextView"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="77dp"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="10dp"
+                            android:text="Email:"
+                            android:textColor="@color/white"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/emailUserProfile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="77dp"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="10dp"
+                            android:text="TextView"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="77dp"
+                            android:paddingLeft="30dp"
+                            android:paddingTop="15dp"
+                            android:text="Curso:"
+                            android:textColor="@color/white"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/cursoUserProfile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="77dp"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="10dp"
+                            android:text="TextView"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

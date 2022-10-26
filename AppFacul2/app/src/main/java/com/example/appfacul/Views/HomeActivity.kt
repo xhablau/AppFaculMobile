@@ -30,6 +30,7 @@ class HomeActivity : AppCompatActivity() {
 
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val username = sharedPreference.getString("username", "")
+
         val textViewTime = findViewById<TextView>(R.id.dateToday)
         val textViewName = findViewById<TextView>(R.id.nameUser)
         textViewName.text = getString(

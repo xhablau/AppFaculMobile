@@ -33,7 +33,7 @@ import java.util.*
 
 class CampusActivity : AppCompatActivity() {
     var drawerLayout: DrawerLayout? = null
-    private lateinit var bird: ImageView
+
     private lateinit var downloadImage: Button
     private val STORAGE_CODE = 1001
 
