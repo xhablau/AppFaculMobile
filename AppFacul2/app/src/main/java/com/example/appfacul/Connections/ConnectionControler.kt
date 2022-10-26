@@ -2,16 +2,12 @@ package com.example.appfacul.Connections
 
 import android.content.Context
 import android.content.Intent
-import androidx.core.content.ContextCompat.startActivity
 import android.widget.Toast
 import com.example.appfacul.Constants.Constants
 import com.example.appfacul.DataClass.AutenticationResponse
 import com.example.appfacul.DataClass.ContextResponse
-import com.example.appfacul.DataClass.GradesResponse
-import com.example.appfacul.GlobalClass
-import com.example.appfacul.Views.MenuPrincipal
-import com.example.appfacul.StartNewActivity.StartNewActivity
 import com.example.appfacul.Views.HomeActivity
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Response
 
@@ -108,15 +104,22 @@ class ConnectionControler {
         val EduContextoAlunoResponsavelAPI = sharedPreference.getString("EduContextoAlunoResponsavelAPI","")?:""
 
         val callback = endpoint.getCurrentUserGrades(corporePrincipal,aspxAuth,defaultAlias,EduContextoAlunoResponsavelAPI)
-        callback.enqueue(object : retrofit2.Callback<Boolean>{
+        callback.enqueue(object : retrofit2.Callback<Array<Map<String,String>>>{
             override fun onResponse(
-                call: Call<Boolean>,
-                response: Response<Boolean>
+                call: Call<Array<Map<String, String>>>,
+                response: Response<Array<Map<String, String>>>
             ) {
-
+                val editor = sharedPreference.edit()
+                val notas = response.body()
+                notas?.size?.let { editor.putInt("QuantidadeNotas", it) }
+                notas?.forEachIndexed { index, nota ->
+                    val conversor = Gson()
+                    editor.putString("nota${index}",conversor.toJson(nota))
+                }
+                editor.commit()
             }
 
-            override fun onFailure(call: Call<Boolean>, t: Throwable) {
+            override fun onFailure(call: Call<Array<Map<String,String>>>, t: Throwable) {
                 Toast.makeText(context,"Ocorreu um erro ao se comunicar com o servidor!", Toast.LENGTH_SHORT).show()
                 println("Error")
             }

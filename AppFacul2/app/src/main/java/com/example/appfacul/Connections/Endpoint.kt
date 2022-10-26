@@ -2,7 +2,6 @@ package com.example.appfacul.Connections
 
 import com.example.appfacul.DataClass.AutenticationResponse
 import com.example.appfacul.DataClass.ContextResponse
-import com.example.appfacul.DataClass.GradesResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -23,7 +22,7 @@ interface Endpoint {
         @Header(".ASPXAUTH")aspxauth:String,
         @Header("DefaultAlias")defaultAlias:String,
         @Header("EduContextoAlunoResponsavelAPI") eduContextoAlunoResponsavel:String
-    ):Call<Boolean>
+    ):Call<Array<Map<String,String>>>
     @GET("/getSelecao")
     fun getCurrentUserSelecao(
         @Header("CorporePrincipal") corporePrincipal: String,
