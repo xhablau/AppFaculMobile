@@ -9,6 +9,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.appfacul.R
 import java.text.SimpleDateFormat
@@ -17,6 +18,7 @@ import java.util.*
 
 class ProfileActivity : AppCompatActivity() {
     var drawerLayout: DrawerLayout? = null
+    private lateinit var imgUserProfile: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +38,42 @@ class ProfileActivity : AppCompatActivity() {
         val date = Calendar.getInstance().time
         val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH) //or use getDateInstance()
         textViewTime.text = formatter.format(date)
+
+        // ============ Image Profile ============
+        val sharedPreferenceImg = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val userImgProfile = sharedPreferenceImg.getString("FotoAluno", "")
+        val imgUserProfile = findViewById<ImageView>(R.id.imgUserProfile)
+        //imgUserProfile.setImageResource()
+
+
+        // ============ Name Profile ============
+        val sharedPreferenceName = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val userNameProfile = sharedPreferenceName.getString("username", "")
+        val textViewNameProfile = findViewById<TextView>(R.id.nameUserProfile)
+        textViewNameProfile.text = getString(
+            R.string.withouSpace,
+            userNameProfile?.split(" ")?.get(0)?.capitalize() ?: ""
+        )
+
+
+        // ============ Email Profile ============
+        val sharedPreferenceEmail = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val userEmailProfile = sharedPreferenceEmail.getString("email", "")
+        val textViewEmailProfile = findViewById<TextView>(R.id.emailUserProfile)
+        textViewEmailProfile.text = getString(
+            R.string.withouSpace,
+            userEmailProfile?.split(" ")?.get(0)?.capitalize() ?: ""
+        )
+
+
+        // ============ Curso Profile ============
+        val sharedPreferenceCurso = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val userCursoProfile = sharedPreferenceCurso.getString("NomeCurso", "")
+        val textViewCursoProfile = findViewById<TextView>(R.id.cursoUserProfile)
+        textViewCursoProfile.text = getString(
+            R.string.withouSpace,
+            userCursoProfile?.split(" ")?.get(0)?.capitalize() ?: ""
+        )
 
     }
 
@@ -114,3 +152,4 @@ class ProfileActivity : AppCompatActivity() {
         activity.startActivity(intent)
     }
 }
+
