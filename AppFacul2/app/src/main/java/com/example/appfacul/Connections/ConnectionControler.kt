@@ -153,4 +153,29 @@ class ConnectionControler {
         })
 
     }
+    fun GetCurrentUserClasses(context: Context){
+        val sharedPreference =  context.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+        val serverUrl = Constants.serverUrl
+        val retrofitClient = NetworkUtils.getRetrofitInstance(serverUrl)
+        val endpoint = retrofitClient.create(Endpoint::class.java)
+
+        val corporePrincipal = sharedPreference.getString("CorporePrincipal","")?:""
+        val aspxAuth = sharedPreference.getString(".ASPXAUTH","")?:""
+        val defaultAlias = sharedPreference.getString("DefaultAlias","")?:""
+        val EduContextoAlunoResponsavelAPI = sharedPreference.getString("EduContextoAlunoResponsavelAPI","")?:""
+
+
+        val callback = endpoint.getCurrentUserClasses(corporePrincipal,aspxAuth,defaultAlias,EduContextoAlunoResponsavelAPI);
+        callback.enqueue(object:retrofit2.Callback<Array<String>>{
+            override fun onResponse(call: Call<Array<String>>, response: Response<Array<String>>) {
+                val response = response.body()
+            }
+
+            override fun onFailure(call: Call<Array<String>>, t: Throwable) {
+                Toast.makeText(context,"Ocorreu um erro ao se comunicar com o servidor!", Toast.LENGTH_SHORT).show()
+                println(t.message)
+            }
+        })
+
+    }
 }

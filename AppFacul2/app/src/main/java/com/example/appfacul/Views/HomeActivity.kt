@@ -27,6 +27,7 @@ class HomeActivity : AppCompatActivity() {
         supportActionBar!!.hide()
         drawerLayout = findViewById(R.id.drawer)
         ConnectionControler().GetCurrentUserSelecao(this)
+        ConnectionControler().GetCurrentUserClasses(this)
 
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val username = sharedPreference.getString("username", "")

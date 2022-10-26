@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -12,6 +13,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.appfacul.R
+import android.util.Base64
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -43,7 +45,10 @@ class ProfileActivity : AppCompatActivity() {
         val sharedPreferenceImg = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val userImgProfile = sharedPreferenceImg.getString("FotoAluno", "")
         val imgUserProfile = findViewById<ImageView>(R.id.imgUserProfile)
-        //imgUserProfile.setImageResource()
+
+        val imageBytes = Base64.decode(userImgProfile, Base64.DEFAULT)
+        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+        imgUserProfile.setImageBitmap(decodedImage)
 
 
         // ============ Name Profile ============
@@ -52,7 +57,7 @@ class ProfileActivity : AppCompatActivity() {
         val textViewNameProfile = findViewById<TextView>(R.id.nameUserProfile)
         textViewNameProfile.text = getString(
             R.string.withouSpace,
-            userNameProfile?.split(" ")?.get(0)?.capitalize() ?: ""
+            userNameProfile
         )
 
 

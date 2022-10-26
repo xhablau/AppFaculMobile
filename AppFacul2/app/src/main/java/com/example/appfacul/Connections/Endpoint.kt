@@ -10,12 +10,14 @@ import retrofit2.http.Path
 interface Endpoint {
     @GET("/getCurrentUser/{user}/{password}")
     fun getCurrentUser(@Path("user")user:String,@Path("password")password:String):Call<AutenticationResponse>
+
     @GET("/getCurrentUser/context")
     fun getCurrentUserContext(
         @Header("CorporePrincipal") corporePrincipal:String,
         @Header(".ASPXAUTH")aspxauth:String,
         @Header("DefaultAlias")defaultAlias:String
     ):Call<ContextResponse>
+
     @GET("/getGrades")
     fun getCurrentUserGrades(
         @Header("CorporePrincipal") corporePrincipal:String,
@@ -23,10 +25,19 @@ interface Endpoint {
         @Header("DefaultAlias")defaultAlias:String,
         @Header("EduContextoAlunoResponsavelAPI") eduContextoAlunoResponsavel:String
     ):Call<Array<Map<String,String>>>
+
     @GET("/getSelecao")
     fun getCurrentUserSelecao(
         @Header("CorporePrincipal") corporePrincipal: String,
         @Header(".ASPXAUTH") aspxauth: String,
         @Header("DefaultAlias")defaultAlias: String,
     ):Call<Boolean>
+
+    @GET("/getClasses")
+    fun getCurrentUserClasses(
+        @Header("CorporePrincipal") corporePrincipal:String,
+        @Header(".ASPXAUTH")aspxauth:String,
+        @Header("DefaultAlias")defaultAlias:String,
+        @Header("EduContextoAlunoResponsavelAPI") eduContextoAlunoResponsavel:String
+    ):Call<Array<String>>
 }
