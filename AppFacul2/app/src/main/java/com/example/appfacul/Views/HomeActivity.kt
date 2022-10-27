@@ -32,6 +32,8 @@ class HomeActivity : AppCompatActivity() {
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val username = sharedPreference.getString("username", "")
 
+
+
         val textViewTime = findViewById<TextView>(R.id.dateToday)
         val textViewName = findViewById<TextView>(R.id.nameUser)
         textViewName.text = getString(
@@ -42,6 +44,97 @@ class HomeActivity : AppCompatActivity() {
         val date = Calendar.getInstance().time
         val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH) //or use getDateInstance()
         textViewTime.text = formatter.format(date)
+
+
+
+        val sdf = SimpleDateFormat("HH:mm")
+        val hora = Calendar.getInstance().time // Ou qualquer outra forma que tem
+        val dataFormatada = sdf.format(hora)
+
+
+
+        timeBackground()
+        aulaHoje()
+    }
+
+
+    // ================= Fun Background Time =================
+    fun timeBackground(){
+        val sdf = SimpleDateFormat("HH:mm")
+        val hora = Calendar.getInstance().time // Ou qualquer outra forma que tem
+        val dataFormatada = sdf.format(hora)
+        val firtClassVal = findViewById<TextView>(R.id.firstClass)
+        val firtsPeriodVal = findViewById<TextView>(R.id.firtsPeriod)
+        val secondClassVal = findViewById<TextView>(R.id.secondClass)
+        val secondPeriodVal = findViewById<TextView>(R.id.secondPeriod)
+
+        if (dataFormatada.toString() >= "19:00" && dataFormatada.toString() <= "20:40"){
+            firtClassVal.setBackgroundResource(R.color.red)
+            firtsPeriodVal.setBackgroundResource(R.color.red)
+        } else {
+            firtClassVal.setBackgroundResource(R.color.purple_500)
+            firtsPeriodVal.setBackgroundResource(R.color.purple_500)
+        }
+
+
+        if (dataFormatada.toString()  >= "21:00" && dataFormatada.toString() <= "22:40"){
+            secondClassVal.setBackgroundResource(R.color.red)
+            secondPeriodVal.setBackgroundResource(R.color.red)
+        } else {
+            secondClassVal.setBackgroundResource(R.color.purple_500)
+            secondPeriodVal.setBackgroundResource(R.color.purple_500)
+        }
+    }
+
+    // ================= Fun Date Today =================
+
+    fun aulaHoje() {
+        val c = Calendar.getInstance()
+        val day = c[Calendar.DAY_OF_WEEK]
+        if (day === 1){
+            val today = findViewById<TextView>(R.id.dataHoje)
+            today.text = getString(
+                R.string.withoutSpace,
+                "Domingo"
+            )
+        } else if (day === 2) {
+            val today = findViewById<TextView>(R.id.dataHoje)
+            today.text = getString(
+                R.string.withoutSpace,
+                "Segunda-feira"
+            )
+        } else if (day === 3) {
+            val today = findViewById<TextView>(R.id.dataHoje)
+            today.text = getString(
+                R.string.withoutSpace,
+                "Terça-feira"
+            )
+        } else if (day === 4) {
+            val today = findViewById<TextView>(R.id.dataHoje)
+            today.text = getString(
+                R.string.withoutSpace,
+                "Quarta-feira"
+            )
+        } else if (day === 5){
+            val today = findViewById<TextView>(R.id.dataHoje)
+            today.text = getString(
+                R.string.withoutSpace,
+                "Quinta-feira"
+            )
+        } else if (day === 6){
+            val today = findViewById<TextView>(R.id.dataHoje)
+            today.text = getString(
+                R.string.withoutSpace,
+                "Sexta-feira"
+            )
+        } else {
+            val today = findViewById<TextView>(R.id.dataHoje)
+            today.text = getString(
+                R.string.withoutSpace,
+                "Sábado"
+            )
+        }
+
 
     }
 

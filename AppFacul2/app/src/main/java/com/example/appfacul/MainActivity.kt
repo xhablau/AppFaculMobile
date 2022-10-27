@@ -1,9 +1,11 @@
 package com.example.appfacul
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.appfacul.LoginControler.LoginControler
+import com.example.appfacul.Views.HomeActivity
 import com.example.appfacul.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -23,9 +25,9 @@ class MainActivity : AppCompatActivity() {
             if (idUser.isEmpty() || passwordUser.isEmpty()) {
                 Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
             } else {
-               LoginControler().FormLoginControler(idUser,passwordUser,this)
-//                val segundaTela = Intent(this, HomeActivity::class.java)
-//                startActivity(segundaTela)
+               //LoginControler().FormLoginControler(idUser,passwordUser,this)
+                val segundaTela = Intent(this, HomeActivity::class.java)
+               startActivity(segundaTela)
             }
         }
     }

@@ -28,6 +28,9 @@ class ProfileActivity : AppCompatActivity() {
         supportActionBar!!.hide()
         drawerLayout = findViewById(R.id.drawer_layout)
 
+
+
+
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val username = sharedPreference.getString("username", "")
         val textViewTime = findViewById<TextView>(R.id.dateToday)
@@ -40,6 +43,9 @@ class ProfileActivity : AppCompatActivity() {
         val date = Calendar.getInstance().time
         val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH) //or use getDateInstance()
         textViewTime.text = formatter.format(date)
+
+
+
 
         // ============ Image Profile ============
         val sharedPreferenceImg = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
@@ -56,7 +62,7 @@ class ProfileActivity : AppCompatActivity() {
         val userNameProfile = sharedPreferenceName.getString("username", "")
         val textViewNameProfile = findViewById<TextView>(R.id.nameUserProfile)
         textViewNameProfile.text = getString(
-            R.string.withouSpace,
+            R.string.withoutSpace,
             userNameProfile
         )
 
@@ -66,7 +72,7 @@ class ProfileActivity : AppCompatActivity() {
         val userEmailProfile = sharedPreferenceEmail.getString("email", "")
         val textViewEmailProfile = findViewById<TextView>(R.id.emailUserProfile)
         textViewEmailProfile.text = getString(
-            R.string.withouSpace,
+            R.string.withoutSpace,
             userEmailProfile?.split(" ")?.get(0)?.capitalize() ?: ""
         )
 
@@ -76,7 +82,7 @@ class ProfileActivity : AppCompatActivity() {
         val userCursoProfile = sharedPreferenceCurso.getString("NomeCurso", "")
         val textViewCursoProfile = findViewById<TextView>(R.id.cursoUserProfile)
         textViewCursoProfile.text = getString(
-            R.string.withouSpace,
+            R.string.withoutSpace,
             userCursoProfile?.split(" ")?.get(0)?.capitalize() ?: ""
         )
 
