@@ -18,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar!!.hide()
+        val colorStatusBar = R.color.dark_blue_unilins
+        window.statusBarColor = resources.getColor(colorStatusBar)
+
         binding.btnAccess.setOnClickListener {
             val idUser = binding.idUser.text.toString()
             val passwordUser = binding.passwordUser.text.toString()

@@ -41,6 +41,9 @@ class CampusActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_campus)
         supportActionBar!!.hide()
+        val colorStatusBar = R.color.dark_blue_unilins
+        window.statusBarColor = resources.getColor(colorStatusBar)
+
         drawerLayout = findViewById(R.id.drawer_layout)
         downloadImage = findViewById(R.id.downloadImg)
 

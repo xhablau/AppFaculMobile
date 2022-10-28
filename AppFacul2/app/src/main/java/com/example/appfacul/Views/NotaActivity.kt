@@ -22,6 +22,8 @@ class NotaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nota)
         supportActionBar!!.hide()
+        val colorStatusBar = R.color.dark_blue_unilins
+        window.statusBarColor = resources.getColor(colorStatusBar)
         drawerLayout = findViewById(R.id.drawer_layout)
         ConnectionControler().GetCurrentUserGrades(this)
 

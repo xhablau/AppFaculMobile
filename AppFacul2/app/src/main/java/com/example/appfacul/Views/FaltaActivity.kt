@@ -21,6 +21,8 @@ class FaltaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_falta)
         supportActionBar!!.hide()
+        val colorStatusBar = R.color.dark_blue_unilins
+        window.statusBarColor = resources.getColor(colorStatusBar)
         drawerLayout = findViewById(R.id.drawer_layout)
 
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
