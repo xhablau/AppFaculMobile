@@ -11,6 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import android.view.View
 import android.widget.TextView
 import com.example.appfacul.Connections.ConnectionControler
+import com.example.appfacul.MainActivity
 import com.example.appfacul.R
 import java.text.SimpleDateFormat
 import java.util.*
@@ -40,6 +41,14 @@ class NotaActivity : AppCompatActivity() {
         val date = Calendar.getInstance().time
         val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH) //or use getDateInstance()
         textViewTime.text = formatter.format(date)
+
+
+
+
+        val sharedPreferenceNota = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val nota=sharedPreferenceNota.getString("nota1","")?:""
+        val notateste = findViewById<TextView>(R.id.testenota)
+        notateste.text = nota
     }
 
 
@@ -100,6 +109,7 @@ class NotaActivity : AppCompatActivity() {
         ) { dialogInterface, i ->
             activity.finishActivity(0)
             System.exit(0)
+
         }
         builder.setNegativeButton(
             "Não"
