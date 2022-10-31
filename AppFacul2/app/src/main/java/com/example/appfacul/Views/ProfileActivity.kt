@@ -14,6 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.appfacul.R
 import android.util.Base64
+import com.example.appfacul.MainActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -145,8 +146,11 @@ class ProfileActivity : AppCompatActivity() {
         builder.setPositiveButton(
             "Sim"
         ) { dialogInterface, i ->
-            activity.finishActivity(0)
-            System.exit(0)
+            this.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE).edit().clear().apply()
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.putExtra("EXIT", true)
+            startActivity(intent)
         }
         builder.setNegativeButton(
             "Não"

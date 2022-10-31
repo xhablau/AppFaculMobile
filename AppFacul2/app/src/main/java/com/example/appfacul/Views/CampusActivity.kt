@@ -7,26 +7,19 @@ import android.app.DownloadManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
-import android.icu.util.Output
 import android.net.Uri
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.view.View
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import android.view.View
-import android.widget.*
 import com.example.appfacul.MainActivity
 import com.example.appfacul.R
-
-import org.w3c.dom.Document
 import java.io.*
-import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -193,8 +186,11 @@ class CampusActivity : AppCompatActivity() {
         builder.setPositiveButton(
             "Sim"
         ) { dialogInterface, i ->
-            activity.finishActivity(0)
-            System.exit(0)
+            this.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE).edit().clear().apply()
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.putExtra("EXIT", true)
+            startActivity(intent)
         }
         builder.setNegativeButton(
             "Não"

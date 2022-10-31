@@ -5,15 +5,14 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.example.appfacul.Connections.ConnectionControler
 import com.example.appfacul.DataClass.Classes
 import com.example.appfacul.R
-import com.example.appfacul.Shared.SetNameAndDate
 import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.*
@@ -31,6 +30,7 @@ class HomeActivity : AppCompatActivity() {
         window.statusBarColor = resources.getColor(colorStatusBar)
         drawerLayout = findViewById(R.id.drawer)
         ConnectionControler().GetCurrentUserSelecao(this)
+        ConnectionControler().GetCurrentUserContext(this)
         ConnectionControler().GetCurrentUserClasses(this)
 
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
@@ -86,7 +86,7 @@ class HomeActivity : AppCompatActivity() {
 
             val aula1Class = conversor.fromJson(aula1, Classes::class.java)
             val aula2Class = conversor.fromJson(aula2, Classes::class.java)
-            if(aula1Class.nome.isNullOrBlank()){
+            if(aula1Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
             }else{
@@ -107,9 +107,15 @@ class HomeActivity : AppCompatActivity() {
             val aula1Class = conversor.fromJson(aula1, Classes::class.java)
             val aula2Class = conversor.fromJson(aula2, Classes::class.java)
 
-            if(aula1Class.nome.isNullOrBlank()){
+            if(aula1Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
+                Timer().schedule(object : TimerTask() {
+                    override fun run() {
+                        finish()
+                        startActivity(intent)
+                    }
+                }, 2000)
             }else{
                 val aula1nome = aula1Class.nome
                 val aula2nome = aula2Class.nome
@@ -128,7 +134,7 @@ class HomeActivity : AppCompatActivity() {
             val aula1Class = conversor.fromJson(aula1, Classes::class.java)
             val aula2Class = conversor.fromJson(aula2, Classes::class.java)
 
-            if(aula1Class.nome.isNullOrBlank()){
+            if(aula1Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
             }else{
@@ -149,7 +155,7 @@ class HomeActivity : AppCompatActivity() {
             val aula1Class = conversor.fromJson(aula1, Classes::class.java)
             val aula2Class = conversor.fromJson(aula2, Classes::class.java)
 
-            if(aula1Class.nome.isNullOrBlank()){
+            if(aula1Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
             }else{
@@ -170,7 +176,7 @@ class HomeActivity : AppCompatActivity() {
             val aula1Class = conversor.fromJson(aula1, Classes::class.java)
             val aula2Class = conversor.fromJson(aula2, Classes::class.java)
 
-            if(aula1Class.nome.isNullOrBlank()){
+            if(aula1Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
             }else{
@@ -191,7 +197,7 @@ class HomeActivity : AppCompatActivity() {
             val aula1Class = conversor.fromJson(aula1, Classes::class.java)
             val aula2Class = conversor.fromJson(aula2, Classes::class.java)
 
-            if(aula1Class.nome.isNullOrBlank()){
+            if(aula1Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
             }else{
@@ -339,6 +345,8 @@ class HomeActivity : AppCompatActivity() {
         ) { dialogInterface, i ->
             activity.finishActivity(0)
             System.exit(0)
+            this.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE).edit().clear().apply()
+            finishAffinity()
         }
         builder.setNegativeButton(
             "Não"

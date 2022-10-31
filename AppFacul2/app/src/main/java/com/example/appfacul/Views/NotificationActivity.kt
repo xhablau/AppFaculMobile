@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import android.view.View
 import android.widget.TextView
+import com.example.appfacul.MainActivity
 import com.example.appfacul.R
 import java.text.SimpleDateFormat
 import java.util.*
@@ -95,8 +96,11 @@ class NotificationActivity : AppCompatActivity() {
         builder.setPositiveButton(
             "Sim"
         ) { dialogInterface, i ->
-            activity.finishActivity(0)
-            System.exit(0)
+            this.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE).edit().clear().apply()
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            intent.putExtra("EXIT", true)
+            startActivity(intent)
         }
         builder.setNegativeButton(
             "Não"
