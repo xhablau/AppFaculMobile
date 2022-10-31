@@ -11,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
 import com.example.appfacul.Connections.ConnectionControler
+import com.example.appfacul.DataClass.Classes
 import com.example.appfacul.R
 import com.example.appfacul.Shared.SetNameAndDate
+import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -55,13 +57,20 @@ class HomeActivity : AppCompatActivity() {
 
 
 
-        timeBackground()
-        aulaHoje()
+        val dia = aulaHoje()
+        timeBackground(this,dia)
     }
 
+    // dia 0:domingo
+    // dia 1:segunda
+    // dia 2:terca
+    // dia 3 :quarta
+    // dia 4:quinta
+    // dia5:sexta
 
     // ================= Fun Background Time =================
-    fun timeBackground(){
+    fun timeBackground(context: Context,dia:Int){
+        val sharedPreference =  context.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
         val sdf = SimpleDateFormat("HH:mm")
         val hora = Calendar.getInstance().time // Ou qualquer outra forma que tem
         val dataFormatada = sdf.format(hora)
@@ -69,13 +78,140 @@ class HomeActivity : AppCompatActivity() {
         val firtsPeriodVal = findViewById<TextView>(R.id.firtsPeriod)
         val secondClassVal = findViewById<TextView>(R.id.secondClass)
         val secondPeriodVal = findViewById<TextView>(R.id.secondPeriod)
+        val conversor = Gson()
+
+        if(dia==0){
+            val aula1 = sharedPreference.getString("aula0","")
+            val aula2 = sharedPreference.getString("aula6","")
+
+            val aula1Class = conversor.fromJson(aula1, Classes::class.java)
+            val aula2Class = conversor.fromJson(aula2, Classes::class.java)
+            if(aula1Class.nome.isNullOrBlank()){
+                firtClassVal.text = "Não há aula"
+                secondClassVal.text = "Não há aula"
+            }else{
+                val aula1nome = aula1Class.nome
+                val aula2nome = aula2Class.nome
+
+                val aula1Sala = aula1Class.sala.split("-")[1]
+                val aula2Sala = aula2Class.sala.split("-")[1]
+
+                firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                secondClassVal.text = "${aula2nome}-${aula2Sala}"
+            }
+        }
+        if(dia==1){
+            val aula1 = sharedPreference.getString("aula1","")
+            val aula2 = sharedPreference.getString("aula7","")
+
+            val aula1Class = conversor.fromJson(aula1, Classes::class.java)
+            val aula2Class = conversor.fromJson(aula2, Classes::class.java)
+
+            if(aula1Class.nome.isNullOrBlank()){
+                firtClassVal.text = "Não há aula"
+                secondClassVal.text = "Não há aula"
+            }else{
+                val aula1nome = aula1Class.nome
+                val aula2nome = aula2Class.nome
+
+                val aula1Sala = aula1Class.sala.split("-")[1]
+                val aula2Sala = aula2Class.sala.split("-")[1]
+
+                firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                secondClassVal.text = "${aula2nome}-${aula2Sala}"
+            }
+        }
+        if(dia==2){
+            val aula1 = sharedPreference.getString("aula2","")
+            val aula2 = sharedPreference.getString("aula8","")
+
+            val aula1Class = conversor.fromJson(aula1, Classes::class.java)
+            val aula2Class = conversor.fromJson(aula2, Classes::class.java)
+
+            if(aula1Class.nome.isNullOrBlank()){
+                firtClassVal.text = "Não há aula"
+                secondClassVal.text = "Não há aula"
+            }else{
+                val aula1nome = aula1Class.nome
+                val aula2nome = aula2Class.nome
+
+                val aula1Sala = aula1Class.sala.split("-")[1]
+                val aula2Sala = aula2Class.sala.split("-")[1]
+
+                firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                secondClassVal.text = "${aula2nome}-${aula2Sala}"
+            }
+        }
+        if(dia==3){
+            val aula1 = sharedPreference.getString("aula3","")
+            val aula2 = sharedPreference.getString("aula9","")
+
+            val aula1Class = conversor.fromJson(aula1, Classes::class.java)
+            val aula2Class = conversor.fromJson(aula2, Classes::class.java)
+
+            if(aula1Class.nome.isNullOrBlank()){
+                firtClassVal.text = "Não há aula"
+                secondClassVal.text = "Não há aula"
+            }else{
+                val aula1nome = aula1Class.nome
+                val aula2nome = aula2Class.nome
+
+                val aula1Sala = aula1Class.sala.split("-")[1]
+                val aula2Sala = aula2Class.sala.split("-")[1]
+
+                firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                secondClassVal.text = "${aula2nome}-${aula2Sala}"
+            }
+        }
+        if(dia==4){
+            val aula1 = sharedPreference.getString("aula4","")
+            val aula2 = sharedPreference.getString("aula10","")
+
+            val aula1Class = conversor.fromJson(aula1, Classes::class.java)
+            val aula2Class = conversor.fromJson(aula2, Classes::class.java)
+
+            if(aula1Class.nome.isNullOrBlank()){
+                firtClassVal.text = "Não há aula"
+                secondClassVal.text = "Não há aula"
+            }else{
+                val aula1nome = aula1Class.nome
+                val aula2nome = aula2Class.nome
+
+                val aula1Sala = aula1Class.sala.split("-")[1]
+                val aula2Sala = aula2Class.sala.split("-")[1]
+
+                firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                secondClassVal.text = "${aula2nome}-${aula2Sala}"
+            }
+        }
+        if(dia==5){
+            val aula1 = sharedPreference.getString("aula5","")
+            val aula2 = sharedPreference.getString("aula11","")
+
+            val aula1Class = conversor.fromJson(aula1, Classes::class.java)
+            val aula2Class = conversor.fromJson(aula2, Classes::class.java)
+
+            if(aula1Class.nome.isNullOrBlank()){
+                firtClassVal.text = "Não há aula"
+                secondClassVal.text = "Não há aula"
+            }else{
+                val aula1nome = aula1Class.nome
+                val aula2nome = aula2Class.nome
+
+                val aula1Sala = aula1Class.sala.split("-")[1]
+                val aula2Sala = aula2Class.sala.split("-")[1]
+
+                firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                secondClassVal.text = "${aula2nome}-${aula2Sala}"
+            }
+        }
 
         if (dataFormatada.toString() >= "19:00" && dataFormatada.toString() <= "20:40"){
             firtClassVal.setBackgroundResource(R.color.red)
             firtsPeriodVal.setBackgroundResource(R.color.red)
         } else {
-            firtClassVal.setBackgroundResource(R.color.purple_500)
-            firtsPeriodVal.setBackgroundResource(R.color.purple_500)
+            firtClassVal.setBackgroundResource(R.color.grey)
+            firtsPeriodVal.setBackgroundResource(R.color.grey)
         }
 
 
@@ -83,61 +219,66 @@ class HomeActivity : AppCompatActivity() {
             secondClassVal.setBackgroundResource(R.color.red)
             secondPeriodVal.setBackgroundResource(R.color.red)
         } else {
-            secondClassVal.setBackgroundResource(R.color.purple_500)
-            secondPeriodVal.setBackgroundResource(R.color.purple_500)
+            secondClassVal.setBackgroundResource(R.color.grey)
+            secondPeriodVal.setBackgroundResource(R.color.grey)
         }
     }
 
     // ================= Fun Date Today =================
 
-    fun aulaHoje() {
+    fun aulaHoje(): Int {
         val c = Calendar.getInstance()
         val day = c[Calendar.DAY_OF_WEEK]
-        if (day === 1){
+        if (day == 1){
             val today = findViewById<TextView>(R.id.dataHoje)
             today.text = getString(
                 R.string.withoutSpace,
                 "Domingo"
             )
-        } else if (day === 2) {
+            return 0
+        } else if (day == 2) {
             val today = findViewById<TextView>(R.id.dataHoje)
             today.text = getString(
                 R.string.withoutSpace,
                 "Segunda-feira"
             )
-        } else if (day === 3) {
+            return 1
+        } else if (day == 3) {
             val today = findViewById<TextView>(R.id.dataHoje)
             today.text = getString(
                 R.string.withoutSpace,
                 "Terça-feira"
             )
-        } else if (day === 4) {
+            return 2
+        } else if (day == 4) {
             val today = findViewById<TextView>(R.id.dataHoje)
             today.text = getString(
                 R.string.withoutSpace,
                 "Quarta-feira"
             )
-        } else if (day === 5){
+            return 3
+        } else if (day == 5){
             val today = findViewById<TextView>(R.id.dataHoje)
             today.text = getString(
                 R.string.withoutSpace,
                 "Quinta-feira"
             )
-        } else if (day === 6){
+            return 4
+        } else if (day == 6){
             val today = findViewById<TextView>(R.id.dataHoje)
             today.text = getString(
                 R.string.withoutSpace,
                 "Sexta-feira"
             )
+            return 5
         } else {
             val today = findViewById<TextView>(R.id.dataHoje)
             today.text = getString(
                 R.string.withoutSpace,
                 "Sábado"
             )
+            return 6
         }
-
-
     }
 
     // ================= Fun Menu =================

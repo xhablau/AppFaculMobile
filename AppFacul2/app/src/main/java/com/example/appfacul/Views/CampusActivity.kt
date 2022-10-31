@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.DownloadManager
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -19,10 +20,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
+import com.example.appfacul.MainActivity
 import com.example.appfacul.R
 
 import org.w3c.dom.Document
@@ -46,6 +45,20 @@ class CampusActivity : AppCompatActivity() {
 
         drawerLayout = findViewById(R.id.drawer_layout)
         downloadImage = findViewById(R.id.downloadImg)
+
+        val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val username = sharedPreference.getString("username", "")
+        val textViewTime = findViewById<TextView>(R.id.dateToday)
+        val textViewName = findViewById<TextView>(R.id.nameUser)
+        textViewName.text = getString(
+            R.string.welcome_messages,
+            username?.split(" ")?.get(0)?.lowercase()?.capitalize() ?: ""
+        )
+
+        val date = Calendar.getInstance().time
+        val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH) //or use getDateInstance()
+        textViewTime.text = formatter.format(date)
+
 
         val url =
             "https://unilins.edu.br/wp-content/uploads/2022/04/mapa_campus-04-22-1-scaled-1536x921.jpg"

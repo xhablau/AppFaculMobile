@@ -5,11 +5,13 @@ import android.content.Intent
 import android.widget.Toast
 import com.example.appfacul.Constants.Constants
 import com.example.appfacul.DataClass.AutenticationResponse
+import com.example.appfacul.DataClass.Classes
 import com.example.appfacul.DataClass.ContextResponse
 import com.example.appfacul.Views.HomeActivity
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Response
+import java.util.*
 
 class ConnectionControler {
     //returns true if the user and password are valid
@@ -166,12 +168,20 @@ class ConnectionControler {
 
 
         val callback = endpoint.getCurrentUserClasses(corporePrincipal,aspxAuth,defaultAlias,EduContextoAlunoResponsavelAPI);
-        callback.enqueue(object:retrofit2.Callback<Array<String>>{
-            override fun onResponse(call: Call<Array<String>>, response: Response<Array<String>>) {
-                val response = response.body()
+        callback.enqueue(object:retrofit2.Callback<Map<String,Array<Map<String,String>>>>{
+            override fun onResponse(call: Call<Map<String,Array<Map<String,String>>>>, response: Response<Map<String,Array<Map<String,String>>>>) {
+                val response = response.body()?.get("SHorarioAluno")
+                val aulas = response
+                val editor = sharedPreference.edit()
+                val conversor = Gson()
+                for(i in 0..11){
+                    val aula = aulas?.get(i)
+                    editor.putString("aula${i}",conversor.toJson(aula))
+                }
+                editor.commit()
             }
 
-            override fun onFailure(call: Call<Array<String>>, t: Throwable) {
+            override fun onFailure(call: Call<Map<String,Array<Map<String,String>>>>, t: Throwable) {
                 Toast.makeText(context,"Ocorreu um erro ao se comunicar com o servidor!", Toast.LENGTH_SHORT).show()
                 println(t.message)
             }
