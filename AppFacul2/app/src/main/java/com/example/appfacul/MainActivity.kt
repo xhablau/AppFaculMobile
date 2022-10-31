@@ -1,5 +1,6 @@
 package com.example.appfacul
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,7 +17,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val sharedPreference =  getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        sharedPreference.edit().clear().apply()
         supportActionBar!!.hide()
         val colorStatusBar = R.color.dark_blue_unilins
         window.statusBarColor = resources.getColor(colorStatusBar)

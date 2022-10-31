@@ -174,9 +174,9 @@ class ConnectionControler {
                 val aulas = response
                 val editor = sharedPreference.edit()
                 val conversor = Gson()
-                for(i in 0..11){
-                  //  val aula = aulas?.get(i)
-                   // editor.putString("aula${i}",conversor.toJson(aula))
+                aulas?.forEachIndexed { index, map ->
+                    val aula = aulas[index]
+                    editor.putString("aula${index}",conversor.toJson(aula))
                 }
                 editor.commit()
             }
