@@ -10,6 +10,7 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import android.view.View
 import android.widget.TextView
+import com.example.appfacul.Connections.ConnectionControler
 import com.example.appfacul.R
 import java.text.SimpleDateFormat
 import java.util.*
@@ -24,7 +25,7 @@ class FaltaActivity : AppCompatActivity() {
         val colorStatusBar = R.color.dark_blue_unilins
         window.statusBarColor = resources.getColor(colorStatusBar)
         drawerLayout = findViewById(R.id.drawer_layout)
-
+        ConnectionControler().GetCurrentUserFaltas(this)
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val username = sharedPreference.getString("username", "")
         val textViewTime = findViewById<TextView>(R.id.dateToday)

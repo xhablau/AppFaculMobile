@@ -43,4 +43,12 @@ interface Endpoint {
         @Header("DefaultAlias")defaultAlias:String,
         @Header("EduContextoAlunoResponsavelAPI") eduContextoAlunoResponsavel:String
     ):Call<Map<String,Array<Map<String,String>>>>
+
+    @GET("/getFaltas")
+    fun getCurrentUserFaltas(
+        @Header("CorporePrincipal") corporePrincipal:String,
+        @Header(".ASPXAUTH")aspxauth:String,
+        @Header("DefaultAlias")defaultAlias:String,
+        @Header("EduContextoAlunoResponsavelAPI") eduContextoAlunoResponsavel:String
+    ):Call<Map<String,Array<Map<String,String>>>>
 }

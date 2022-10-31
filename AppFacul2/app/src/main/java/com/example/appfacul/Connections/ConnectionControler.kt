@@ -188,4 +188,31 @@ class ConnectionControler {
         })
 
     }
+    fun GetCurrentUserFaltas(context:Context){
+        val sharedPreference =  context.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
+        val serverUrl = Constants.serverUrl
+        val retrofitClient = NetworkUtils.getRetrofitInstance(serverUrl)
+        val endpoint = retrofitClient.create(Endpoint::class.java)
+        val corporePrincipal = sharedPreference.getString("CorporePrincipal","")?:""
+        val aspxAuth = sharedPreference.getString(".ASPXAUTH","")?:""
+        val defaultAlias = sharedPreference.getString("DefaultAlias","")?:""
+        val EduContextoAlunoResponsavelAPI = sharedPreference.getString("EduContextoAlunoResponsavelAPI","")?:""
+        val editor = sharedPreference.edit()
+        val callback = endpoint.getCurrentUserFaltas(corporePrincipal,aspxAuth,defaultAlias,EduContextoAlunoResponsavelAPI)
+        callback.enqueue(object:retrofit2.Callback<Map<String,Array<Map<String,String>>>>{
+            override fun onResponse(call: Call<Map<String,Array<Map<String,String>>>>, response: Response<Map<String,Array<Map<String,String>>>>) {
+                val respostaServidor = response.body()?.get("FaltasEtapa")
+                val conversor = Gson()
+                respostaServidor?.forEachIndexed { index, _ ->
+                    val falta = respostaServidor[index]
+                    editor.putString("falta${index}",conversor.toJson(falta))
+                }
+                editor.commit()
+            }
+            override fun onFailure(call: Call<Map<String,Array<Map<String,String>>>>, t: Throwable) {
+                Toast.makeText(context,"Ocorreu um erro ao se comunicar com o servidor!", Toast.LENGTH_SHORT).show()
+                println(t.message)
+            }
+        })
+    }
 }
