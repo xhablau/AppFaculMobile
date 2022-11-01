@@ -86,6 +86,9 @@ class FaltaActivity : AppCompatActivity() {
         redirecActivity(this, CampusActivity::class.java)
     }
 
+    fun clickAgradecimentos(view: View?) {
+        redirecActivity(this, AgradecimentoActivity::class.java)
+    }
 
     fun clickLogOut(view: View?) {
         logout(this)

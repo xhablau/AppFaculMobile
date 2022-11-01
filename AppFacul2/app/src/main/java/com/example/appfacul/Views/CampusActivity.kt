@@ -170,10 +170,12 @@ class CampusActivity : AppCompatActivity() {
     }
 
     fun clickCampus(view: View?) {
-
         recreate()
     }
 
+    fun clickAgradecimentos(view: View?) {
+        redirecActivity(this, AgradecimentoActivity::class.java)
+    }
 
     fun clickLogOut(view: View?) {
         logout(this)

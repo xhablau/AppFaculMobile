@@ -193,6 +193,32 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
             android:src="@drawable/ic_round_logout_24"></ImageView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:onClick="clickAgradecimentos"
+        android:orientation="horizontal"
+        android:paddingTop="130dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_weight="1"
+            android:padding="12dp"
+            android:text="Agradecimentos"></TextView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/ic_round_sentiment_very_satisfied_24"></ImageView>
     </LinearLayout>
 
 

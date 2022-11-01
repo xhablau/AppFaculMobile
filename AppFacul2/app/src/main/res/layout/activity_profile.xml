@@ -124,6 +124,23 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="120dp"
+                android:paddingLeft="115dp"
+                android:layout_gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="178dp"
+                    android:layout_height="86dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_unilins_branco">
+
+                </ImageView>
+            </LinearLayout>
+
 
         </LinearLayout>
 
