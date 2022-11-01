@@ -19,24 +19,45 @@
 
             <include layout="@layout/menu_toolbar"></include>
 
-            <TextView
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Matéria"
+                        android:padding="3dip"
+                        android:textSize="30sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:text="Numero de faltas"
+                        android:paddingLeft="60dp"
+                        android:textSize="30sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+                </TableRow>
+            </TableLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Falta"
-                android:textColor="@color/black"
-                android:textSize="50sp"
-                android:textStyle="bold"></TextView>
+                android:paddingTop="120dp"
+                android:paddingLeft="115dp"
+                android:layout_gravity="center"
+                >
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="178dp"
+                    android:layout_height="86dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_unilins_branco">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical" />
-            </ScrollView>
+                </ImageView>
+            </LinearLayout>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

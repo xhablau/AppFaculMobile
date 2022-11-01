@@ -38,6 +38,13 @@ class NotaActivity : AppCompatActivity() {
             username?.split(" ")?.get(0)?.lowercase()?.capitalize() ?: ""
         )
 
+
+        val sharedPreferenceNota = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val nota = sharedPreference.getString("nota1", "")
+        val noateste = findViewById<TextView>(R.id.testenota)
+
+        noateste.text= nota
+
         val date = Calendar.getInstance().time
         val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH) //or use getDateInstance()
         textViewTime.text = formatter.format(date)
