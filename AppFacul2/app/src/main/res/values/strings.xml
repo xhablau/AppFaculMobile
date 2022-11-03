@@ -2,4 +2,19 @@
     <string name="app_name">Unilins</string>
     <string name="welcome_messages">Olá, %1$s! </string>
     <string name="withoutSpace">%1$s</string>
+    <string name="agradecimentos">App desenvolvido por dois estudantes da Unilins, Igor Gavioli e Paulo Neves. Tal projeto tem como objetivo facilitar o acesso a informações básicas a respeito da situação do aluno.
+        Todo o projeto foi desenvolvido utilizando Java e Kotlin como linguagens de programação, mas algumas partes utilizam NodeJS para realizar a comunicação necessária com os diversos servidores da Unilins.
+        Demais tecnologias e ferramentas que foram utilizadas:
+            *Terraform
+            *Docker
+            *SpringFramework
+            *Linux (Amazon Linux)
+            *AWS (Lambda e EC2)
+            *Android Studio
+            *IntelliJ
+            *Git
+            *Insomnia
+            *Gradle
+            *Maven
+    </string>
 </resources>
