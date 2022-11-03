@@ -90,6 +90,12 @@ class HomeActivity : AppCompatActivity() {
             if(aula1Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
+                Timer().schedule(object : TimerTask() {
+                    override fun run() {
+                        finish()
+                        startActivity(intent)
+                    }
+                }, 2000)
             }else{
                 val aula1nome = aula1Class.nome
                 val aula2nome = aula2Class.nome
@@ -138,6 +144,12 @@ class HomeActivity : AppCompatActivity() {
             if(aula1Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
+                Timer().schedule(object : TimerTask() {
+                    override fun run() {
+                        finish()
+                        startActivity(intent)
+                    }
+                }, 2000)
             }else{
                 val aula1nome = aula1Class.nome
                 val aula2nome = aula2Class.nome
@@ -159,6 +171,12 @@ class HomeActivity : AppCompatActivity() {
             if(aula1Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
+                Timer().schedule(object : TimerTask() {
+                    override fun run() {
+                        finish()
+                        startActivity(intent)
+                    }
+                }, 2000)
             }else{
                 val aula1nome = aula1Class.nome
                 val aula2nome = aula2Class.nome
@@ -180,6 +198,12 @@ class HomeActivity : AppCompatActivity() {
             if(aula1Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
+                Timer().schedule(object : TimerTask() {
+                    override fun run() {
+                        finish()
+                        startActivity(intent)
+                    }
+                }, 2000)
             }else{
                 val aula1nome = aula1Class.nome
                 val aula2nome = aula2Class.nome
@@ -201,6 +225,12 @@ class HomeActivity : AppCompatActivity() {
             if(aula1Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
+                Timer().schedule(object : TimerTask() {
+                    override fun run() {
+                        finish()
+                        startActivity(intent)
+                    }
+                }, 2000)
             }else{
                 val aula1nome = aula1Class.nome
                 val aula2nome = aula2Class.nome
