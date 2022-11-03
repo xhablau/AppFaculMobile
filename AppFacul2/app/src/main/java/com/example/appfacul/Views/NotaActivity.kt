@@ -13,6 +13,8 @@ import android.widget.TextView
 import com.example.appfacul.Connections.ConnectionControler
 import com.example.appfacul.MainActivity
 import com.example.appfacul.R
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -40,7 +42,7 @@ class NotaActivity : AppCompatActivity() {
 
 
         val sharedPreferenceNota = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
-        val nota = sharedPreference.getString("nota1", "")
+        val nota = sharedPreferenceNota.getString("nota1", "")
         val noateste = findViewById<TextView>(R.id.testenota)
 
         noateste.text= nota
@@ -48,6 +50,10 @@ class NotaActivity : AppCompatActivity() {
         val date = Calendar.getInstance().time
         val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH) //or use getDateInstance()
         textViewTime.text = formatter.format(date)
+
+
+
+
     }
 
 
