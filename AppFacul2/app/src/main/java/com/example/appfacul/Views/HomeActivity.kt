@@ -33,6 +33,7 @@ class HomeActivity : AppCompatActivity() {
         ConnectionControler().GetCurrentUserSelecao(this)
         ConnectionControler().GetCurrentUserContext(this)
         ConnectionControler().GetCurrentUserClasses(this)
+        ConnectionControler().GetCurrentUserGrades(this)
 
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val username = sharedPreference.getString("username", "")
