@@ -60,7 +60,7 @@ class HomeActivity : AppCompatActivity() {
 
 
         val dia = aulaHoje()
-        timeBackground(this,dia)
+        timeBackground(this,1)
     }
 
     // dia 0:domingo
@@ -68,7 +68,7 @@ class HomeActivity : AppCompatActivity() {
     // dia 2:terca
     // dia 3 :quarta
     // dia 4:quinta
-    // dia5:sexta
+    // dia 5:sexta
 
     // ================= Fun Background Time =================
     fun timeBackground(context: Context,dia:Int){

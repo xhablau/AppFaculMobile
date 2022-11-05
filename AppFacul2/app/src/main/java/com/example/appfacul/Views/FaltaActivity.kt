@@ -11,7 +11,10 @@ import androidx.drawerlayout.widget.DrawerLayout
 import android.view.View
 import android.widget.TextView
 import com.example.appfacul.Connections.ConnectionControler
+import com.example.appfacul.DataClass.Faltas
+import com.example.appfacul.DataClass.Notas
 import com.example.appfacul.R
+import com.google.gson.Gson
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -39,7 +42,50 @@ class FaltaActivity : AppCompatActivity() {
         val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH) //or use getDateInstance()
         textViewTime.text = formatter.format(date)
 
+        disciplinaNota()
+        faltas()
 
+    }
+
+
+    fun disciplinaNota(){
+        val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val conversor = Gson()
+        val quantFaltas = sharedPreference.getInt("QuantidadeFaltas", 0)
+        val faltas = arrayOfNulls<Faltas>(quantFaltas+1)
+
+        for (i in 0..quantFaltas){
+            val falta = sharedPreference.getString("falta${i}","")
+            val faltaclass = conversor.fromJson(falta, Faltas::class.java)
+            faltas[i]=faltaclass
+        }
+
+        var aux = ""
+        for (i in 0..quantFaltas - 1){
+            aux = aux + (faltas[i]?.disciplina ?: "") + "\n" + "\n"
+        }
+
+        val disciplinaNota = findViewById<TextView>(R.id.disciplinaFalta)
+        disciplinaNota.setText(aux)
+    }
+
+    fun faltas(){
+        val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+        val conversor = Gson()
+        val quantFaltas = sharedPreference.getInt("QuantidadeFaltas", 0)
+        val faltas = arrayOfNulls<Faltas>(quantFaltas+1)
+        for (i in 0..quantFaltas){
+            val falta = sharedPreference.getString("falta${i}","")
+            val faltaclass = conversor.fromJson(falta, Faltas::class.java)
+            faltas[i]=faltaclass
+        }
+        var aux = ""
+        for (i in 0..quantFaltas - 1){
+            aux = aux + (faltas[i]?.percentual ?: "0") +"%" + "\n" + "\n"
+        }
+
+        val p1Nota = findViewById<TextView>(R.id.faltaFalta)
+        p1Nota.setText(aux)
     }
 
 

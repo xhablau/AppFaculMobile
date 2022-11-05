@@ -19,14 +19,59 @@
 
             <include layout="@layout/menu_toolbar"></include>
 
-            <TextView
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Falta"
-                android:textColor="@color/black"
-                android:textSize="50sp"
-                android:textStyle="bold"></TextView>
+                android:layout_height="match_parent">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="Matéria"
+                        android:layout_width="200dp"
+                        android:paddingLeft="20dp"
+                        android:textSize="30sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:text="Faltas"
+                        android:layout_width="match_parent"
+                        android:paddingLeft="30dp"
+                        android:textSize="30sp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/disciplinaFalta"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="18dp"
+                        android:gravity="left"
+                        android:text="Matéria"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/faltaFalta"
+                        android:layout_width="52dp"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="30dp"
+                        android:gravity="center"
+                        android:text="Falta"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+
+                </TableRow>
+            </TableLayout>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

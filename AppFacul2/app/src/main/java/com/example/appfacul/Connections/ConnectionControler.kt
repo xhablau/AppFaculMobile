@@ -205,6 +205,7 @@ class ConnectionControler {
                 val conversor = Gson()
                 respostaServidor?.forEachIndexed { index, _ ->
                     val falta = respostaServidor[index]
+                    respostaServidor?.size?.let { editor.putInt("QuantidadeFaltas", it) }
                     editor.putString("falta${index}",conversor.toJson(falta))
                 }
                 editor.commit()

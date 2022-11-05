@@ -47,20 +47,7 @@ class NotaActivity : AppCompatActivity() {
         val formatter = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH) //or use getDateInstance()
         textViewTime.text = formatter.format(date)
 
-        val conversor = Gson()
-        val quantNotas = sharedPreference.getInt("QuantidadeNotas", 0)
 
-        val notas = arrayOfNulls<Notas>(quantNotas+1)
-
-
-
-        for (i in 0..quantNotas){
-            val nota = sharedPreference.getString("nota${i}","")
-            val notaclass = conversor.fromJson(nota, Notas::class.java)
-
-            notas[i]=notaclass
-
-        }
      disciplinaNota()
      P1()
      P2()
