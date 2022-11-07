@@ -25,26 +25,28 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="453dp"
+                android:layout_height="500dp"
                 android:orientation="vertical"
-                android:paddingLeft="110dp">
+                android:paddingLeft="70dp">
 
                 <ImageView
                     android:id="@+id/imgUserProfile"
-                    android:layout_width="224dp"
-                    android:layout_height="244dp"
+                    android:layout_width="240dp"
+                    android:layout_height="300dp"
 
                     android:paddingTop="30dp"
+                    android:paddingLeft="50dp"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingLeft="0dp">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="70dp">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -58,7 +60,7 @@
 
                         <TextView
                             android:id="@+id/nameUserProfile"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="77dp"
                             android:paddingLeft="5dp"
                             android:paddingTop="40dp"
@@ -68,8 +70,8 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp">
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -94,14 +96,14 @@
 
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="45dp">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="77dp"
                             android:paddingLeft="30dp"
-                            android:paddingTop="15dp"
+                            android:paddingTop="1dp"
                             android:text="Curso:"
                             android:textColor="@color/white"
                             android:textSize="20dp"
@@ -109,7 +111,7 @@
 
                         <TextView
                             android:id="@+id/cursoUserProfile"
-                            android:layout_width="wrap_content"
+                            android:layout_width="100dp"
                             android:layout_height="77dp"
                             android:paddingLeft="5dp"
                             android:paddingTop="10dp"

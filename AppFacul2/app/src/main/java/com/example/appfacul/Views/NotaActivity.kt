@@ -93,7 +93,7 @@ class NotaActivity : AppCompatActivity() {
         var aux = ""
         for (i in 0..quantNotas - 1){
             lateinit var valorNotaP1: Array<String>
-            valorNotaP1 = (notas[i]?.p1 ?: "0.00").split("<",">").toTypedArray()
+            valorNotaP1 = (notas[i]?.p1 ?: "").split("<",">").toTypedArray()
 
             val quantSplitNota = valorNotaP1.size
             if (quantSplitNota > 2){
@@ -122,7 +122,7 @@ class NotaActivity : AppCompatActivity() {
         var aux = ""
         for (i in 0..quantNotas - 1){
             lateinit var valorNotaP2: Array<String>
-            valorNotaP2 = (notas[i]?.p2 ?: "0.00").split("<",">").toTypedArray()
+            valorNotaP2 = (notas[i]?.p2 ?: "").split("<",">").toTypedArray()
 
             val quantSplitNota = valorNotaP2.size
             if (quantSplitNota > 2){
@@ -150,7 +150,7 @@ class NotaActivity : AppCompatActivity() {
         var aux = ""
         for (i in 0..quantNotas - 1){
             lateinit var valorNotaSub: Array<String>
-            valorNotaSub = (notas[i]?.sub ?: "0.00").split("<",">").toTypedArray()
+            valorNotaSub = (notas[i]?.sub ?: "").split("<",">").toTypedArray()
 
             val quantSplitNota = valorNotaSub.size
             if (quantSplitNota > 2){
@@ -178,7 +178,7 @@ class NotaActivity : AppCompatActivity() {
         var aux = ""
         for (i in 0..quantNotas - 1){
             lateinit var valorNotaFinal: Array<String>
-            valorNotaFinal = (notas[i]?.NotaFinal ?: "0.00").split("<",">").toTypedArray()
+            valorNotaFinal = (notas[i]?.NotaFinal ?: "").split("<",">").toTypedArray()
 
             val quantSplitNota = valorNotaFinal.size
             if (quantSplitNota > 2){
