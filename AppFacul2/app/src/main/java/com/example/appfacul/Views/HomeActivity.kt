@@ -34,6 +34,7 @@ class HomeActivity : AppCompatActivity() {
         ConnectionControler().GetCurrentUserContext(this)
         ConnectionControler().GetCurrentUserClasses(this)
         ConnectionControler().GetCurrentUserGrades(this)
+        ConnectionControler().GetCurrentUserFaltas(this)
 
         val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
         val username = sharedPreference.getString("username", "")
@@ -170,6 +171,7 @@ class HomeActivity : AppCompatActivity() {
                 val aula1nome = aula1Class.nome
                 val aula1incio = aula1Class.horainicial
                 val aula1final = aula1Class.horafinal
+
                 val aula2nome = aula2Class.nome
                 val aula2inicio = aula2Class.horainicial
                 val aula2final = aula2Class.horafinal

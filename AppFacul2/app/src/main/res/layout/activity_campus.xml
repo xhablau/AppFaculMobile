@@ -35,6 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/btn_login"
                 android:id="@+id/downloadImg"
                 android:text="Baixar Imagem Do Campus" />
 

@@ -21,6 +21,7 @@ class ConnectionControler {
             val retrofitClient = NetworkUtils.getRetrofitInstance(serverurl)
             val endpoint = retrofitClient.create(Endpoint::class.java)
             val callback = endpoint.getCurrentUser(user, password)
+
             callback.enqueue(object : retrofit2.Callback<AutenticationResponse>{
                 override fun onResponse(
                     call: Call<AutenticationResponse>,

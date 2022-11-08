@@ -86,7 +86,7 @@ class ProfileActivity : AppCompatActivity() {
         val textViewCursoProfile = findViewById<TextView>(R.id.cursoUserProfile)
         textViewCursoProfile.text = getString(
             R.string.withoutSpace,
-            userCursoProfile?.split(" ")?.get(0)?.capitalize() ?: ""
+            userCursoProfile ?: ""
         )
 
     }

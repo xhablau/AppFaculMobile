@@ -10,4 +10,5 @@
     <color name="grey">#221F1F</color>
     <color name="red">#FF0000</color>
     <color name="dark_blue_unilins">#0D3A57</color>
+    <color name="btn_login">#2196E1</color>
 </resources>

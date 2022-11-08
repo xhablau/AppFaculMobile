@@ -18,112 +18,128 @@
             android:orientation="vertical">
 
             <include layout="@layout/menu_toolbar"></include>
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TableRow
+
+            <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:text="Matéria"
-                    android:paddingLeft="20dp"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:text="P1"
-                    android:paddingLeft="38dp"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"/>
-                <TextView
-                    android:text="P2"
-                    android:paddingLeft="38dp"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"/>
+                android:layout_height="550dp">
 
-                <TextView
-
-                    android:paddingLeft="38dp"
-                    android:text="SUB"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-                <TextView
-                    android:text="Nota Final"
-                    android:paddingLeft="38dp"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"/>
-            </TableRow>
-
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="10dp">
-
-                <TextView
-                    android:id="@+id/disciplinaNota"
+                <TableLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="18dp"
-                    android:gravity="left"
-                    android:text="Matéria"
-                    android:textColor="@color/white"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
+                    android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/p1Nota"
-                    android:layout_width="70dp"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="30dp"
-                    android:gravity="center"
-                    android:text="P1"
-                    android:textColor="@color/white"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/p2Nota"
-                    android:layout_width="70dp"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="30dp"
-                    android:gravity="center"
-                    android:text="P2"
-                    android:textColor="@color/white"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
+                        <TextView
+                            android:paddingLeft="20dp"
+                            android:text="Matéria"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/subNota"
-                    android:layout_width="70dp"
-                    android:gravity="center"
-                    android:layout_height="match_parent"
-                    android:paddingLeft="30dp"
-                    android:text="SUB"
-                    android:textColor="@color/white"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
+                        <TextView
+                            android:paddingLeft="48dp"
+                            android:text="P1"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/notaFinalNota"
-                    android:layout_width="113dp"
+                        <TextView
+                            android:paddingLeft="48dp"
+                            android:text="P2"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+
+                            android:paddingLeft="41dp"
+                            android:text="SUB"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:paddingLeft="38dp"
+                            android:text="Nota Final"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/disciplinaNota"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left"
+                            android:paddingLeft="18dp"
+                            android:text="Matéria"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p1Nota"
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:paddingLeft="30dp"
+                            android:text="P1"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p2Nota"
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:paddingLeft="30dp"
+                            android:text="P2"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/subNota"
+                            android:layout_width="90dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:paddingLeft="30dp"
+                            android:text="SUB"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/notaFinalNota"
+                            android:layout_width="113dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:paddingLeft="30dp"
+                            android:text="Nota Final"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+                    </TableRow>
+                </TableLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:paddingLeft="30dp"
-                    android:gravity="center"
-                    android:text="Nota Final"
-                    android:textColor="@color/white"
-                    android:textSize="10sp"
-                    android:textStyle="bold" />
-            </TableRow>
-        </TableLayout>
-    </HorizontalScrollView>
+                    android:src="@drawable/icon_unilins_branco"></ImageView>
+            </LinearLayout>
 
         </LinearLayout>
 

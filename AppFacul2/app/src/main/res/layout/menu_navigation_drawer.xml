@@ -84,27 +84,7 @@
             android:src="@drawable/ic_round_person_24"></ImageView>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:onClick="clickNotification"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
-            android:layout_weight="1"
-            android:padding="12dp"
-            android:text="Notificações"></TextView>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="50dp"
-            android:src="@drawable/ic_round_notifications_24"></ImageView>
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
