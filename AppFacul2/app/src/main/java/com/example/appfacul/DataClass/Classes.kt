@@ -7,5 +7,9 @@ data class Classes(
     @SerializedName("NOME")
     val nome:String,
     @SerializedName("SALA")
-    val sala:String
+    val sala:String,
+    @SerializedName("HORAINICIAL")
+    val horainicial:String,
+    @SerializedName("HORAFINAL")
+    val horafinal:String,
 )

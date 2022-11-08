@@ -69,6 +69,7 @@ class HomeActivity : AppCompatActivity() {
     // dia 3 :quarta
     // dia 4:quinta
     // dia 5:sexta
+    // dia 6:sabado
 
     // ================= Fun Background Time =================
     fun timeBackground(context: Context,dia:Int){
@@ -77,9 +78,13 @@ class HomeActivity : AppCompatActivity() {
         val hora = Calendar.getInstance().time // Ou qualquer outra forma que tem
         val dataFormatada = sdf.format(hora)
         val firtClassVal = findViewById<TextView>(R.id.firstClass)
-        val firtsPeriodVal = findViewById<TextView>(R.id.firtsPeriod)
+       // val firtsPeriodVal = findViewById<TextView>(R.id.firtsPeriod)
+        val firtsPeriodInicio = findViewById<TextView>(R.id.firtsPeriodInicio)
+        val firtsPeriodFinal = findViewById<TextView>(R.id.firtsPeriodFinal)
         val secondClassVal = findViewById<TextView>(R.id.secondClass)
-        val secondPeriodVal = findViewById<TextView>(R.id.secondPeriod)
+       // val secondPeriodVal = findViewById<TextView>(R.id.secondPeriod)
+        val secondPeriodInicio = findViewById<TextView>(R.id.secondPeriodInicio)
+        val secondPeriodFinal = findViewById<TextView>(R.id.secondPeriodFinal)
         val conversor = Gson()
 
         if(dia==0){
@@ -88,7 +93,7 @@ class HomeActivity : AppCompatActivity() {
 
             val aula1Class = conversor.fromJson(aula1, Classes::class.java)
             val aula2Class = conversor.fromJson(aula2, Classes::class.java)
-            if(aula1Class==null){
+            if(aula1Class==null || aula2Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
                 Timer().schedule(object : TimerTask() {
@@ -98,14 +103,51 @@ class HomeActivity : AppCompatActivity() {
                     }
                 }, 2000)
             }else{
+
                 val aula1nome = aula1Class.nome
+                val aula1incio = aula1Class.horainicial
+                val aula1final = aula1Class.horafinal
                 val aula2nome = aula2Class.nome
+                val aula2inicio = aula2Class.horainicial
+                val aula2final = aula2Class.horafinal
 
-                val aula1Sala = aula1Class.sala.split("-")[1]
-                val aula2Sala = aula2Class.sala.split("-")[1]
+                if (aula1Class.nome==null){
+                    firtClassVal.text = "Não há aula"
+                } else {
+                    val aula1Sala = aula1Class.sala.split("-")[1]
+                    firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                    firtsPeriodInicio.text = "${aula1incio}"
+                    firtsPeriodFinal.text = "${aula1final}"
 
-                firtClassVal.text = "${aula1nome}-${aula1Sala}"
-                secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    if (dataFormatada.toString() >= aula1incio && dataFormatada.toString() <= aula1final){
+                        firtClassVal.setBackgroundResource(R.color.red)
+                        firtsPeriodInicio.setBackgroundResource(R.color.red)
+                        firtsPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        firtClassVal.setBackgroundResource(R.color.grey)
+                        firtsPeriodInicio.setBackgroundResource(R.color.grey)
+                        firtsPeriodFinal.setBackgroundResource(R.color.grey)
+                    }
+                }
+
+                if (aula2Class.nome==null){
+                    secondClassVal.text = "Não há aula"
+                } else{
+                    val aula2Sala = aula2Class.sala.split("-")[1]
+                    secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    secondPeriodInicio.text = "${aula2inicio}"
+                    secondPeriodFinal.text = "${aula2final}"
+
+                    if (dataFormatada.toString()  >= aula2inicio && dataFormatada.toString() <= aula2final){
+                        secondClassVal.setBackgroundResource(R.color.red)
+                        secondPeriodInicio.setBackgroundResource(R.color.red)
+                        secondPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        secondClassVal.setBackgroundResource(R.color.black)
+                        secondPeriodInicio.setBackgroundResource(R.color.black)
+                        secondPeriodFinal.setBackgroundResource(R.color.black)
+                    }
+                }
             }
         }
         if(dia==1){
@@ -115,7 +157,7 @@ class HomeActivity : AppCompatActivity() {
             val aula1Class = conversor.fromJson(aula1, Classes::class.java)
             val aula2Class = conversor.fromJson(aula2, Classes::class.java)
 
-            if(aula1Class==null){
+            if(aula1Class==null || aula2Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
                 Timer().schedule(object : TimerTask() {
@@ -126,13 +168,49 @@ class HomeActivity : AppCompatActivity() {
                 }, 2000)
             }else{
                 val aula1nome = aula1Class.nome
+                val aula1incio = aula1Class.horainicial
+                val aula1final = aula1Class.horafinal
                 val aula2nome = aula2Class.nome
+                val aula2inicio = aula2Class.horainicial
+                val aula2final = aula2Class.horafinal
 
-                val aula1Sala = aula1Class.sala.split("-")[1]
-                val aula2Sala = aula2Class.sala.split("-")[1]
+                if (aula1Class.nome==null){
+                    firtClassVal.text = "Não há aula"
+                } else {
+                    val aula1Sala = aula1Class.sala.split("-")[1]
+                    firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                    firtsPeriodInicio.text = "${aula1incio}"
+                    firtsPeriodFinal.text = "${aula1final}"
 
-                firtClassVal.text = "${aula1nome}-${aula1Sala}"
-                secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    if (dataFormatada.toString() >= aula1incio && dataFormatada.toString() <= aula1final){
+                        firtClassVal.setBackgroundResource(R.color.red)
+                        firtsPeriodInicio.setBackgroundResource(R.color.red)
+                        firtsPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        firtClassVal.setBackgroundResource(R.color.grey)
+                        firtsPeriodInicio.setBackgroundResource(R.color.grey)
+                        firtsPeriodFinal.setBackgroundResource(R.color.grey)
+                    }
+                }
+
+                if (aula2Class.nome==null){
+                    secondClassVal.text = "Não há aula"
+                } else{
+                    val aula2Sala = aula2Class.sala.split("-")[1]
+                    secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    secondPeriodInicio.text = "${aula2inicio}"
+                    secondPeriodFinal.text = "${aula2final}"
+
+                    if (dataFormatada.toString()  >= aula2inicio && dataFormatada.toString() <= aula2final){
+                        secondClassVal.setBackgroundResource(R.color.red)
+                        secondPeriodInicio.setBackgroundResource(R.color.red)
+                        secondPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        secondClassVal.setBackgroundResource(R.color.black)
+                        secondPeriodInicio.setBackgroundResource(R.color.black)
+                        secondPeriodFinal.setBackgroundResource(R.color.black)
+                    }
+                }
             }
         }
         if(dia==2){
@@ -142,7 +220,7 @@ class HomeActivity : AppCompatActivity() {
             val aula1Class = conversor.fromJson(aula1, Classes::class.java)
             val aula2Class = conversor.fromJson(aula2, Classes::class.java)
 
-            if(aula1Class==null){
+            if(aula1Class==null || aula2Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
                 Timer().schedule(object : TimerTask() {
@@ -153,13 +231,49 @@ class HomeActivity : AppCompatActivity() {
                 }, 2000)
             }else{
                 val aula1nome = aula1Class.nome
+                val aula1incio = aula1Class.horainicial
+                val aula1final = aula1Class.horafinal
                 val aula2nome = aula2Class.nome
+                val aula2inicio = aula2Class.horainicial
+                val aula2final = aula2Class.horafinal
 
-                val aula1Sala = aula1Class.sala.split("-")[1]
-                val aula2Sala = aula2Class.sala.split("-")[1]
+                if (aula1Class.nome==null){
+                    firtClassVal.text = "Não há aula"
+                } else {
+                    val aula1Sala = aula1Class.sala.split("-")[1]
+                    firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                    firtsPeriodInicio.text = "${aula1incio}"
+                    firtsPeriodFinal.text = "${aula1final}"
 
-                firtClassVal.text = "${aula1nome}-${aula1Sala}"
-                secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    if (dataFormatada.toString() >= aula1incio && dataFormatada.toString() <= aula1final){
+                        firtClassVal.setBackgroundResource(R.color.red)
+                        firtsPeriodInicio.setBackgroundResource(R.color.red)
+                        firtsPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        firtClassVal.setBackgroundResource(R.color.grey)
+                        firtsPeriodInicio.setBackgroundResource(R.color.grey)
+                        firtsPeriodFinal.setBackgroundResource(R.color.grey)
+                    }
+                }
+
+                if (aula2Class.nome==null){
+                    secondClassVal.text = "Não há aula"
+                } else{
+                    val aula2Sala = aula2Class.sala.split("-")[1]
+                    secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    secondPeriodInicio.text = "${aula2inicio}"
+                    secondPeriodFinal.text = "${aula2final}"
+
+                    if (dataFormatada.toString()  >= aula2inicio && dataFormatada.toString() <= aula2final){
+                        secondClassVal.setBackgroundResource(R.color.red)
+                        secondPeriodInicio.setBackgroundResource(R.color.red)
+                        secondPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        secondClassVal.setBackgroundResource(R.color.red)
+                        secondPeriodInicio.setBackgroundResource(R.color.red)
+                        secondPeriodFinal.setBackgroundResource(R.color.grey)
+                    }
+                }
             }
         }
         if(dia==3){
@@ -169,7 +283,7 @@ class HomeActivity : AppCompatActivity() {
             val aula1Class = conversor.fromJson(aula1, Classes::class.java)
             val aula2Class = conversor.fromJson(aula2, Classes::class.java)
 
-            if(aula1Class==null){
+            if(aula1Class==null || aula2Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
                 Timer().schedule(object : TimerTask() {
@@ -180,13 +294,49 @@ class HomeActivity : AppCompatActivity() {
                 }, 2000)
             }else{
                 val aula1nome = aula1Class.nome
+                val aula1incio = aula1Class.horainicial
+                val aula1final = aula1Class.horafinal
                 val aula2nome = aula2Class.nome
+                val aula2inicio = aula2Class.horainicial
+                val aula2final = aula2Class.horafinal
 
-                val aula1Sala = aula1Class.sala.split("-")[1]
-                val aula2Sala = aula2Class.sala.split("-")[1]
+                if (aula1Class.nome==null){
+                    firtClassVal.text = "Não há aula"
+                } else {
+                    val aula1Sala = aula1Class.sala.split("-")[1]
+                    firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                    firtsPeriodInicio.text = "${aula1incio}"
+                    firtsPeriodFinal.text = "${aula1final}"
 
-                firtClassVal.text = "${aula1nome}-${aula1Sala}"
-                secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    if (dataFormatada.toString() >= aula1incio && dataFormatada.toString() <= aula1final){
+                        firtClassVal.setBackgroundResource(R.color.red)
+                        firtsPeriodInicio.setBackgroundResource(R.color.red)
+                        firtsPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        firtClassVal.setBackgroundResource(R.color.grey)
+                        firtsPeriodInicio.setBackgroundResource(R.color.grey)
+                        firtsPeriodFinal.setBackgroundResource(R.color.grey)
+                    }
+                }
+
+                if (aula2Class.nome==null){
+                    secondClassVal.text = "Não há aula"
+                } else{
+                    val aula2Sala = aula2Class.sala.split("-")[1]
+                    secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    secondPeriodInicio.text = "${aula2inicio}"
+                    secondPeriodFinal.text = "${aula2final}"
+
+                    if (dataFormatada.toString()  >= aula2inicio && dataFormatada.toString() <= aula2final){
+                        secondClassVal.setBackgroundResource(R.color.red)
+                        secondPeriodInicio.setBackgroundResource(R.color.red)
+                        secondPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        secondClassVal.setBackgroundResource(R.color.black)
+                        secondPeriodInicio.setBackgroundResource(R.color.black)
+                        secondPeriodFinal.setBackgroundResource(R.color.black)
+                    }
+                }
             }
         }
         if(dia==4){
@@ -196,7 +346,7 @@ class HomeActivity : AppCompatActivity() {
             val aula1Class = conversor.fromJson(aula1, Classes::class.java)
             val aula2Class = conversor.fromJson(aula2, Classes::class.java)
 
-            if(aula1Class==null){
+            if(aula1Class==null || aula2Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
                 Timer().schedule(object : TimerTask() {
@@ -207,13 +357,49 @@ class HomeActivity : AppCompatActivity() {
                 }, 2000)
             }else{
                 val aula1nome = aula1Class.nome
+                val aula1incio = aula1Class.horainicial
+                val aula1final = aula1Class.horafinal
                 val aula2nome = aula2Class.nome
+                val aula2inicio = aula2Class.horainicial
+                val aula2final = aula2Class.horafinal
 
-                val aula1Sala = aula1Class.sala.split("-")[1]
-                val aula2Sala = aula2Class.sala.split("-")[1]
+                if (aula1Class.nome==null){
+                    firtClassVal.text = "Não há aula"
+                } else {
+                    val aula1Sala = aula1Class.sala.split("-")[1]
+                    firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                    firtsPeriodInicio.text = "${aula1incio}"
+                    firtsPeriodFinal.text = "${aula1final}"
 
-                firtClassVal.text = "${aula1nome}-${aula1Sala}"
-                secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    if (dataFormatada.toString() >= aula1incio && dataFormatada.toString() <= aula1final){
+                        firtClassVal.setBackgroundResource(R.color.red)
+                        firtsPeriodInicio.setBackgroundResource(R.color.red)
+                        firtsPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        firtClassVal.setBackgroundResource(R.color.grey)
+                        firtsPeriodInicio.setBackgroundResource(R.color.grey)
+                        firtsPeriodFinal.setBackgroundResource(R.color.grey)
+                    }
+                }
+
+                if (aula2Class.nome==null){
+                    secondClassVal.text = "Não há aula"
+                } else{
+                    val aula2Sala = aula2Class.sala.split("-")[1]
+                    secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    secondPeriodInicio.text = "${aula2inicio}"
+                    secondPeriodFinal.text = "${aula2final}"
+
+                    if (dataFormatada.toString()  >= aula2inicio && dataFormatada.toString() <= aula2final){
+                        secondClassVal.setBackgroundResource(R.color.red)
+                        secondPeriodInicio.setBackgroundResource(R.color.red)
+                        secondPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        secondClassVal.setBackgroundResource(R.color.black)
+                        secondPeriodInicio.setBackgroundResource(R.color.black)
+                        secondPeriodFinal.setBackgroundResource(R.color.black)
+                    }
+                }
             }
         }
         if(dia==5){
@@ -223,7 +409,7 @@ class HomeActivity : AppCompatActivity() {
             val aula1Class = conversor.fromJson(aula1, Classes::class.java)
             val aula2Class = conversor.fromJson(aula2, Classes::class.java)
 
-            if(aula1Class==null){
+            if(aula1Class==null || aula2Class==null){
                 firtClassVal.text = "Não há aula"
                 secondClassVal.text = "Não há aula"
                 Timer().schedule(object : TimerTask() {
@@ -234,32 +420,115 @@ class HomeActivity : AppCompatActivity() {
                 }, 2000)
             }else{
                 val aula1nome = aula1Class.nome
+                val aula1incio = aula1Class.horainicial
+                val aula1final = aula1Class.horafinal
                 val aula2nome = aula2Class.nome
+                val aula2inicio = aula2Class.horainicial
+                val aula2final = aula2Class.horafinal
 
-                val aula1Sala = aula1Class.sala.split("-")[1]
-                val aula2Sala = aula2Class.sala.split("-")[1]
+                if (aula1Class.nome==null){
+                    firtClassVal.text = "Não há aula"
+                } else {
+                    val aula1Sala = aula1Class.sala.split("-")[1]
+                    firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                    firtsPeriodInicio.text = "${aula1incio}"
+                    firtsPeriodFinal.text = "${aula1final}"
 
-                firtClassVal.text = "${aula1nome}-${aula1Sala}"
-                secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    if (dataFormatada.toString() >= aula1incio && dataFormatada.toString() <= aula1final){
+                        firtClassVal.setBackgroundResource(R.color.red)
+                        firtsPeriodInicio.setBackgroundResource(R.color.red)
+                        firtsPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        firtClassVal.setBackgroundResource(R.color.grey)
+                        firtsPeriodInicio.setBackgroundResource(R.color.grey)
+                        firtsPeriodFinal.setBackgroundResource(R.color.grey)
+                    }
+                }
+
+                if (aula2Class.nome==null){
+                    secondClassVal.text = "Não há aula"
+                } else{
+                    val aula2Sala = aula2Class.sala.split("-")[1]
+                    secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    secondPeriodInicio.text = "${aula2inicio}"
+                    secondPeriodFinal.text = "${aula2final}"
+
+                    if (dataFormatada.toString()  >= aula2inicio && dataFormatada.toString() <= aula2final){
+                        secondClassVal.setBackgroundResource(R.color.red)
+                        secondPeriodInicio.setBackgroundResource(R.color.red)
+                        secondPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        secondClassVal.setBackgroundResource(R.color.black)
+                        secondPeriodInicio.setBackgroundResource(R.color.black)
+                        secondPeriodFinal.setBackgroundResource(R.color.black)
+                    }
+                }
+            }
+        }
+        if(dia==6){
+            val aula1 = sharedPreference.getString("aula6","")
+            val aula2 = sharedPreference.getString("aula12","")
+
+            val aula1Class = conversor.fromJson(aula1, Classes::class.java)
+            val aula2Class = conversor.fromJson(aula2, Classes::class.java)
+
+            if(aula1Class==null || aula2Class==null){
+                firtClassVal.text = "Não há aula"
+                secondClassVal.text = "Não há aula"
+                Timer().schedule(object : TimerTask() {
+                    override fun run() {
+                        finish()
+                        startActivity(intent)
+                    }
+                }, 2000)
+            }else{
+                val aula1nome = aula1Class.nome
+                val aula1incio = aula1Class.horainicial
+                val aula1final = aula1Class.horafinal
+                val aula2nome = aula2Class.nome
+                val aula2inicio = aula2Class.horainicial
+                val aula2final = aula2Class.horafinal
+
+                if (aula1Class.nome==null){
+                    firtClassVal.text = "Não há aula"
+                } else {
+                    val aula1Sala = aula1Class.sala.split("-")[1]
+                    firtClassVal.text = "${aula1nome}-${aula1Sala}"
+                    firtsPeriodInicio.text = "${aula1incio}"
+                    firtsPeriodFinal.text = "${aula1final}"
+
+                    if (dataFormatada.toString() >= aula1incio && dataFormatada.toString() <= aula1final){
+                        firtClassVal.setBackgroundResource(R.color.red)
+                        firtsPeriodInicio.setBackgroundResource(R.color.red)
+                        firtsPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        firtClassVal.setBackgroundResource(R.color.grey)
+                        firtsPeriodInicio.setBackgroundResource(R.color.grey)
+                        firtsPeriodFinal.setBackgroundResource(R.color.grey)
+                    }
+                }
+
+                if (aula2Class.nome==null){
+                    secondClassVal.text = "Não há aula"
+                } else{
+                    val aula2Sala = aula2Class.sala.split("-")[1]
+                    secondClassVal.text = "${aula2nome}-${aula2Sala}"
+                    secondPeriodInicio.text = "${aula2inicio}"
+                    secondPeriodFinal.text = "${aula2final}"
+
+                    if (dataFormatada.toString()  >= aula2inicio && dataFormatada.toString() <= aula2final){
+                        secondClassVal.setBackgroundResource(R.color.red)
+                        secondPeriodInicio.setBackgroundResource(R.color.red)
+                        secondPeriodFinal.setBackgroundResource(R.color.red)
+                    } else {
+                        secondClassVal.setBackgroundResource(R.color.black)
+                        secondPeriodInicio.setBackgroundResource(R.color.black)
+                        secondPeriodFinal.setBackgroundResource(R.color.black)
+                    }
+                }
             }
         }
 
-        if (dataFormatada.toString() >= "19:00" && dataFormatada.toString() <= "20:40"){
-            firtClassVal.setBackgroundResource(R.color.red)
-            firtsPeriodVal.setBackgroundResource(R.color.red)
-        } else {
-            firtClassVal.setBackgroundResource(R.color.grey)
-            firtsPeriodVal.setBackgroundResource(R.color.grey)
-        }
-
-
-        if (dataFormatada.toString()  >= "21:00" && dataFormatada.toString() <= "22:40"){
-            secondClassVal.setBackgroundResource(R.color.red)
-            secondPeriodVal.setBackgroundResource(R.color.red)
-        } else {
-            secondClassVal.setBackgroundResource(R.color.grey)
-            secondPeriodVal.setBackgroundResource(R.color.grey)
-        }
     }
 
     // ================= Fun Date Today =================

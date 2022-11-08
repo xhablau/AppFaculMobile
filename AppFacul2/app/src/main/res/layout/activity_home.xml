@@ -38,30 +38,52 @@
                     android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/firtsPeriod"
+                            android:id="@+id/firtsPeriodInicio"
                             android:layout_width="wrap_content"
-                            android:layout_height="250dp"
+                            android:layout_height="125dp"
                             android:background="@color/grey"
                             android:gravity="center"
-                            android:text="19:00\n20:40"
+                            android:text="19"
+                            android:textColor="@color/white"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/firtsPeriodFinal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="125dp"
+                            android:background="@color/grey"
+                            android:gravity="center"
+                            android:text="20"
                             android:textColor="@color/white"
                             android:textSize="25dp"
                             android:textStyle="bold" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="250dp">
+                        android:layout_height="250dp"
+                        android:orientation="vertical">
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:id="@+id/secondPeriod"
-                            android:gravity="center"
-                            android:textColor="@color/white"
+                            android:id="@+id/secondPeriodInicio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="125dp"
                             android:background="@color/black"
-                            android:text="21:00\n22:40"
+                            android:gravity="center"
+                            android:text="21:00"
+                            android:textColor="@color/white"
+                            android:textSize="25dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/secondPeriodFinal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="125dp"
+                            android:background="@color/black"
+                            android:gravity="center"
+                            android:text="22:40"
+                            android:textColor="@color/white"
                             android:textSize="25dp"
                             android:textStyle="bold" />
                     </LinearLayout>
