@@ -61,7 +61,7 @@ class HomeActivity : AppCompatActivity() {
 
 
         val dia = aulaHoje()
-        timeBackground(this,1)
+        timeBackground(this,dia)
     }
 
     // dia 0:domingo
@@ -74,6 +74,7 @@ class HomeActivity : AppCompatActivity() {
 
     // ================= Fun Background Time =================
     fun timeBackground(context: Context,dia:Int){
+        val timeout:Long = 1500
         val sharedPreference =  context.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
         val sdf = SimpleDateFormat("HH:mm")
         val hora = Calendar.getInstance().time // Ou qualquer outra forma que tem
@@ -102,7 +103,7 @@ class HomeActivity : AppCompatActivity() {
                         finish()
                         startActivity(intent)
                     }
-                }, 2000)
+                }, timeout)
             }else{
 
                 val aula1nome = aula1Class.nome
@@ -166,7 +167,7 @@ class HomeActivity : AppCompatActivity() {
                         finish()
                         startActivity(intent)
                     }
-                }, 2000)
+                }, timeout)
             }else{
                 val aula1nome = aula1Class.nome
                 val aula1incio = aula1Class.horainicial
@@ -230,7 +231,7 @@ class HomeActivity : AppCompatActivity() {
                         finish()
                         startActivity(intent)
                     }
-                }, 2000)
+                },  timeout)
             }else{
                 val aula1nome = aula1Class.nome
                 val aula1incio = aula1Class.horainicial
@@ -271,8 +272,8 @@ class HomeActivity : AppCompatActivity() {
                         secondPeriodInicio.setBackgroundResource(R.color.red)
                         secondPeriodFinal.setBackgroundResource(R.color.red)
                     } else {
-                        secondClassVal.setBackgroundResource(R.color.red)
-                        secondPeriodInicio.setBackgroundResource(R.color.red)
+                        secondClassVal.setBackgroundResource(R.color.grey)
+                        secondPeriodInicio.setBackgroundResource(R.color.grey)
                         secondPeriodFinal.setBackgroundResource(R.color.grey)
                     }
                 }
@@ -293,7 +294,7 @@ class HomeActivity : AppCompatActivity() {
                         finish()
                         startActivity(intent)
                     }
-                }, 2000)
+                }, timeout)
             }else{
                 val aula1nome = aula1Class.nome
                 val aula1incio = aula1Class.horainicial
@@ -356,7 +357,7 @@ class HomeActivity : AppCompatActivity() {
                         finish()
                         startActivity(intent)
                     }
-                }, 2000)
+                }, timeout)
             }else{
                 val aula1nome = aula1Class.nome
                 val aula1incio = aula1Class.horainicial
@@ -419,7 +420,7 @@ class HomeActivity : AppCompatActivity() {
                         finish()
                         startActivity(intent)
                     }
-                }, 2000)
+                }, timeout)
             }else{
                 val aula1nome = aula1Class.nome
                 val aula1incio = aula1Class.horainicial
@@ -482,7 +483,7 @@ class HomeActivity : AppCompatActivity() {
                         finish()
                         startActivity(intent)
                     }
-                }, 2000)
+                }, timeout)
             }else{
                 val aula1nome = aula1Class.nome
                 val aula1incio = aula1Class.horainicial
