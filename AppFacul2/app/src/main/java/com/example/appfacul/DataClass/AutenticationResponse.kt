@@ -6,6 +6,6 @@ data class AutenticationResponse(
     val dialect:String,
     val email:String,
     val username:String,
-    val authenticated:Boolean,
+    val isAuthenticated:Boolean,
     val sessionCookies: String,
 )

@@ -1,5 +1,5 @@
 package com.example.appfacul.Constants
 
 object Constants {
-    const val serverUrl="http://44.210.112.220:80/"
+    const val serverUrl="http://192.168.15.10:8080/"
 }

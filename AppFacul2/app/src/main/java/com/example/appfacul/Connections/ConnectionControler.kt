@@ -28,7 +28,7 @@ class ConnectionControler {
                     response: Response<AutenticationResponse>
                 ) {
                     val result: AutenticationResponse? = response.body()
-                    if(result?.authenticated!!){
+                    if(result?.isAuthenticated!!){
                         val sharedPreference =  context.getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
                         val editor = sharedPreference.edit()
 
